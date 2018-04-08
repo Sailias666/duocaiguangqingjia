@@ -1,0 +1,78 @@
+/* pages/my/achievement/achi.wxss */
+.bg{
+  background-color: #EEEEEE;
+  height: 100%;
+  width: 100%;
+}
+.gift-container{
+  height: 150px;
+  width: 100%;
+
+}
+
+.gift-content{
+  flex-direction: row;
+  display: flex;
+  height: 150px;
+  width: 100%;
+  background-color: #fff;
+  border-top: 1px solid #BBBBBB;
+  
+}
+
+.gift-pic-container{
+  height: 150px;
+  width: 30%;
+}
+
+.gift-pic{
+  margin-top: 30px;
+  margin-left: 10rpx;
+  height: 100px;
+  width: 200rpx;
+}
+
+.gift-detail-container{
+  flex-direction: column;
+  display: flex;
+  height: 150px;
+  width: 70%;
+}
+
+.gift-detail-title{
+  height: 55px;
+  width: 100%;
+  margin-top: 30px;
+  margin-right: 20rpx;
+}
+
+.gift-detail-price{
+  height: 45px;
+  width: 100%
+}
+
+.gift-detail-deadline{
+  height: 50px;
+  width: 100%
+}
+
+.gift-title-font{
+  font-family: MicroSoft Yahei;
+  font-size: 20px;
+  color: #333333;
+}
+
+.gift-price-font{
+  font-family: MicroSoft Yahei;
+  font-size: 15px;
+  color: #FF0000;
+}
+
+.gift-deadline-font{
+  float: right;
+  margin-right: 30rpx;
+  margin-top: 15px;
+  font-family: MicroSoft Yahei;
+  font-size: 10px;
+  color: #BBBBBB;
+}

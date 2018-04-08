@@ -1,0 +1,24 @@
+  <view>
+      <view class='header-container' open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+    <view class='avatar-container'>
+      <image class="avatar" src="{{avatarUrl}}"></image>
+    </view>
+    <view>
+      <text class='username-font'>{{user_name}}</text>
+    </view>
+  </view>
+
+    <view class='medal-title'>
+      <text class='medal-title-font'> 荣誉</text>
+    </view>
+    
+
+
+    <view class='medal-container'>
+        <view class='medal-item-container' wx:for="{{num}}" wx:key='{{index}}'>
+          <image src='/images/medal.png' class='medal-pic'></image>
+          <text class='medal-text'>踏破铁鞋</text>
+        </view>
+    </view>
+</view>
+  

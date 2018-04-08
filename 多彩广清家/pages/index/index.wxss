@@ -1,0 +1,180 @@
+.bg{
+  background-color: #EEEEEE;
+}
+
+.slide-image{  
+   width: 100%;  
+}  
+.swiper {
+  height: 400rpx;
+  width: 100%;
+}
+.content{  
+  display: flex;  
+  flex-direction: row;  
+}
+.hang{
+    display: flex;
+    align-content: center;
+}
+
+.run-container{
+  flex-direction: row;
+  display: flex;
+  height: 80px;
+  margin-top: 10px;
+  background-color: #fff;
+}
+
+.run-img-container{
+  height: 80px;
+  width: 20%;
+}
+
+.run-content{
+  height: 80px;
+  width: 80%;
+}
+
+.run-content-fontblock1{
+  height: 40px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.run-conetnt-font1{
+  font-family: MicroSoft Yahei;
+  font-size: 25px;
+  color: #66CC66 ;
+}
+.run-content-fontblock2{
+  height: 30px;
+  width: 100%;
+}
+.run-content-font2{
+  font-family: MicroSoft Yahei;
+  font-size: 15px;
+  color: #66CC66 ;
+}
+
+.run-img{
+  margin-top: 15px;
+  margin-left: 10px;
+  height: 50px;
+  width: 50px;
+}
+
+.grid-wrp{
+  flex-direction: row;
+  display: flex;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 210px;
+  width: 100%;
+}
+
+.grid-row {
+  height: 100px;
+  width: 100%;
+  margin-top: 5px;
+  background: #fff;
+  border-color: #EEEEEE;
+}
+
+.grid-item {
+  flex-direction: row;
+  display: flex;  
+  height: 100px;
+  width: 100%;
+  background: #fff;
+  border-bottom-color: #000;
+  border-color: #000;
+  border-width: 5px;
+}
+
+.grid-item-content{
+  flex-direction: row;
+  display: flex;  
+  height: 80px;
+  width: 100%;
+}
+
+.block-style1{
+  margin-top: 10%;
+  height: 60px;
+  width: 3%;
+  background-color: #6666CC ;
+}
+
+.block-style2{
+  margin-top: 10%;
+  height: 60px;
+  width: 3%;
+  background-color: #669966  ;
+}
+
+.block-style3{
+  margin-top: 10%;
+  height: 60px;
+  width: 3%;
+  background-color: #996699   ;
+}
+
+.block-style4{
+  margin-top: 10%;
+  height: 60px;
+  width: 3%;
+  background-color: #FF6666  ;
+}
+
+.item-font1{
+  height: 50px;
+  width: 40%;
+  color: #6666CC;
+  margin-top: 30px;  
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  font-family: MicroSoft Yahei;
+  border-bottom: 2px solid #6666CC;
+}
+
+.item-font2{
+  height: 50px;
+  width: 40%;
+  color: #669966;
+  margin-top: 30px;  
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  font-family: MicroSoft Yahei;
+  border-bottom: 2px solid #669966;
+}
+
+.item-font3{
+  height: 50px;
+  width: 40%;
+  color: #996699;
+  margin-top: 30px;  
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  font-family: MicroSoft Yahei;
+  border-bottom: 2px solid #996699;
+}
+
+.item-font4{
+  height: 50px;
+  width: 40%;
+  color: #FF6666 ;
+  margin-top: 30px;  
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  font-family: MicroSoft Yahei;
+  border-bottom: 2px solid #FF6666;
+}
+
+.item-pic{
+  margin-top: 25px;
+  margin-left: 30rpx;
+  height: 40px;
+  width: 40px;
+  align-items: center;
+}

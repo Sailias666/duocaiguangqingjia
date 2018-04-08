@@ -1,0 +1,19 @@
+<view class='bg'>
+  <view class="post-container" >
+  <view wx:for="{{challenge}}" wx:key='{{index}}' class='grid-item'>  
+ <navigator url='./challenge_detail/challenge_detail?id={{index+1}}' hover-class="navigator-hover">
+      <view class='title-container'>
+          <image src='/images/challen.png' class='title-image'></image>
+          <text class="post-title">{{item.challenge_name}}</text>
+      </view>
+      <view class='content-container'>
+            <text class="post-content">{{item.challenge_desc}}</text>
+      </view>      
+      <view class='deadline-container'>      
+            <text class='deadline'>截至日期： {{item.challenge_date}}</text>
+      </view> 
+       </navigator>
+    </view> 
+  </view>
+</view>
+

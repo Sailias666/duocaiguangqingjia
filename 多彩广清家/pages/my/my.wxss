@@ -1,0 +1,89 @@
+.header-container{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  height: 180px;
+  background-color: #003366;
+}
+
+.avatar-container{
+  margin-top:40px;
+  height: 100px;
+  width: 100px;
+}
+
+.avatar{
+    width:100px;
+    height:100px;
+    border-radius:100px;
+}
+
+
+
+.user-item-container{
+  flex-direction: column;
+  display: flex;
+  height: 300px;
+}
+
+.user-item{
+  flex-direction: column;
+  display: flex;
+  height: 50px;
+  width: 100%;
+
+}
+
+.user-item-content{
+  flex-direction: row;
+  display: flex;
+  height: 40px;
+  width: 100%;
+  margin-top: 5px;
+  margin-left: 10px;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+
+.user-item-icon{
+  margin-top: 5px;
+  height: 25px;
+  width:25px;
+}
+
+.user-item-desc{
+  margin-top: 10px;
+  height: 20px;
+  width:15%;
+}
+
+.user-item-font{
+  margin-top: 8px;
+  font-size: 15px;
+  margin-left: 15px;
+  font-family: MicroSoft Yahei; 
+  color: #444444 ;
+}
+.user-item-enter{
+  height: 40px;
+  width:70%;
+}
+.user-item-arrow{
+  float: right;
+  margin-top: 15px;
+  height: 10px;
+  width: 20rpx;
+}
+
+.user-item-int{
+  float: right;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-right: 20rpx;
+  font-family: MicroSoft Yahei; 
+  color: #CCCCCC ;
+}
+
+.username-font{
+  color:#fff;
+}

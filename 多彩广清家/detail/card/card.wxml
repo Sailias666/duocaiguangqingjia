@@ -1,0 +1,20 @@
+<view class='bg'>
+  <view class="post-container" wx:for="{{activity}}" wx:key='{{index}}'>
+     <navigator url='../../detail/card/card/activityone/activity?id={{index+1}}' hover-class="navigator-hover">
+  <view  class='grid-item'  >  
+      <view class='title-container'>
+            <text class="post-title">{{item.activity_name}}</text>
+      </view>
+       <view class='image-container'>
+            <image class="post-image" src="{{item.activity_img}}"></image>
+      </view> 
+      <view class='content-container'>
+            <text class="post-content">{{item.activity_desc}}</text>
+      </view>      
+      <view class='deadline-container'>      
+            <text class='deadline'>截至日期:{{item.activity_date}}</text>
+      </view> 
+    </view> 
+    </navigator>
+  </view>
+</view>

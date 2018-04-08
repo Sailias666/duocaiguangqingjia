@@ -1,0 +1,56 @@
+<view class='bg'>
+  <view class='gift-container'>
+    <view class='gift-content'>
+      <view class='gift-pic-container'>
+        <image src='/images/iphonex.png' class='gift-pic'></image>      
+      </view>
+      <view class='gift-detail-container'>
+        <view class='gift-detail-title'>
+          <text class='gift-title-font'>IPhone X</text>
+        </view>
+        <view class='gift-detail-price'>
+          <text class='gift-price-font'>积分： 3000</text>
+        </view>
+        <view class='gift-detail-deadline' >
+          <text class='gift-deadline-font'>兑换截至日期： 2018-12-31</text>
+        </view>
+      </view>
+    </view>
+
+    <view class='gift-content'>
+      <view class='gift-pic-container'>
+        <image src='/images/iphonex.png' class='gift-pic'></image>      
+      </view>
+      <view class='gift-detail-container'>
+        <view class='gift-detail-title'>
+          <text class='gift-title-font'>IPhone X</text>
+        </view>
+        <view class='gift-detail-price'>
+          <text class='gift-price-font'>积分： 3000</text>
+        </view>
+        <view class='gift-detail-deadline'>
+          <text class='gift-deadline-font'>兑换截至日期： 2018-12-31</text>
+        </view>
+      </view>
+    </view>
+
+    <view class='gift-content'>
+      <view class='gift-pic-container'>
+        <image src='/images/iphonex.png' class='gift-pic'></image>      
+      </view>
+      <view class='gift-detail-container'>
+        <view class='gift-detail-title'>
+          <text class='gift-title-font'>IPhone X</text>
+        </view>
+        <view class='gift-detail-price'>
+          <text class='gift-price-font'>积分： 3000</text>
+        </view>
+        <view class='gift-detail-deadline'>
+          <text class='gift-deadline-font'>兑换截至日期： 2018-12-31</text>
+        </view>
+      </view>
+    </view>
+
+    <view style='border-bottom: 1px solid #BBBBBB;'></view>
+  </view>
+</view>

@@ -29,19 +29,19 @@ Page({
           winHeight: res.windowHeight
         });
       }
-    });
+    }),
 
-    common.rank_all('http://plahui.top/index.php/wx/wx/blm', 'blm');
+    common.rank_all('https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/blm', 'blm');
     var a = wx.getStorageSync('blm');
     that.setData({
       blm: a,
     })
-    common.rank_all('http://plahui.top/index.php/wx/wx/flm', 'flm');
+    common.rank_all('https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/flm', 'flm');
     var b = wx.getStorageSync('flm');
     that.setData({
       flm: b,
     })
-    common.rank_all('http://plahui.top/index.php/wx/wx/bad', 'bad');
+    common.rank_all('https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/bad', 'bad');
     var c = wx.getStorageSync('bad');
     that.setData({
       bad: c,
@@ -54,17 +54,17 @@ Page({
     common.show('', 'loading');
     wx.showNavigationBarLoading()
   
-    common.rank_all('http://plahui.top/index.php/wx/wx/blm', 'blm');
+    common.rank_all('https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/blm', 'blm');
     var a = wx.getStorageSync('blm');
     that.setData({
       blm: a,
     })
-    common.rank_all('http://plahui.top/index.php/wx/wx/flm', 'flm');
+    common.rank_all('https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/flm', 'flm');
     var b = wx.getStorageSync('flm');
     that.setData({
       flm: b,
     })
-    common.rank_all_sx('http://plahui.top/index.php/wx/wx/bad', 'bad');
+    common.rank_all_sx('https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/bad', 'bad');
     var c = wx.getStorageSync('bad');
     that.setData({
       bad: c,

@@ -2,10 +2,9 @@
 
 .weui-btn{
   margin-top: 20px;
-  background: #222222!important;
-  color:#fff!important;
-  margin-left: 10px;
-  margin-right: 10px;
+  background: #006666!important;
+  color:#006666!important;
+  width: 90%;
   }
 .weui-textarea{
   margin-top: 10px;
@@ -54,6 +53,8 @@
   margin-bottom: -4px;
   margin-right: -9px;
   overflow: hidden;
+  flex-direction: row;
+  display: flex;
 }
 .weui-uploader__file {
   margin-right: 9px;

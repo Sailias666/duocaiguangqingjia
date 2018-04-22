@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "我要打卡"
+  "navigationBarTitleText": "我要打卡",
+  "enablePullDownRefresh": true
 }

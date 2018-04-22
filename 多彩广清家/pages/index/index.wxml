@@ -3,10 +3,10 @@
   <swiper indicator-dots="{{indicatorDots}}"  
           autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='swiper'>  
         <block wx:for="{{img}}" wx:key='{{index}}'>  
-          <navigator url='../../../../../detail/challenge/challenge_detail/challenge_detail?id={{index+1}}' hover-class="navigator-hover">
+          <navigator url='../../../../../detail/card/card/card_detail/card_detail?id={{img[index].activity_id}}' hover-class="navigator-hover">
             <swiper-item>  
-                <navigator url="{{item.url}}" hover-class="navigator-hover">  
-                <image src="{{item.url}}" class="slide-image" width="355" height="150"/>  
+                <navigator url="{{img[index].url}}" hover-class="navigator-hover">  
+                <image src="{{img[index].url}}" class="slide-image" width="355" height="150"/>  
                 </navigator>   
             </swiper-item>  
           </navigator>
@@ -68,6 +68,20 @@
         </navigator>
     </view>
   </view>
+
+ <modal hidden="{{hiddenmodalput}}" showCancel="false" title="请选择分组信息" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm" >  
+    <view class="section">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{groupinfo}}">
+    <view class="picker">
+      当前选择：{{groupinfo[index]}}
+    </view>
+  </picker>
+</view>
+</modal> 
+
+
+
+
 </view>
 
 

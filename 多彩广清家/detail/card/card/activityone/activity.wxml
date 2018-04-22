@@ -5,17 +5,21 @@
        <view class="weui-cell__bd">
             <view class="weui-uploader">
                 <view class="weui-uploader__bd">
-                    <view class="weui-uploader__input-box">
+                    <view wx:if="{{imageList}}">
+                      <image class="weui-uploader__img" src="{{imageList}}" mode="aspectFill" />
+                     </view>
+
+                    <view class="weui-uploader__input-box" hidden='{{pic_hidden}}'>
                         <view class="weui-uploader__files" id="uploaderFiles">
-                            <view wx:if="{{imageList}}">
-                                <image class="weui-uploader__img" src="{{imageList}}" mode="aspectFill" />
-                            </view>
                     </view>
-                        <view class="weui-uploader__input" bindtap="subimg"></view>
+                        <view class="weui-uploader__input"  catchtap="subimg"></view>
                     </view>
+                    <view hidden='{{del_hidden}}'><text style='color:red;font-size:20px;margin-left:20px;' catchtap='cleanpic'>删除</text></view>
                 </view>
             </view>
         </view>
-        <button class="weui-btn" form-type="submit">发布</button>
+        <button class="weui-btn" form-type="submit">
+        <text style='color:#fff;'>发布</text>
+        </button>
   </form>
 </view>

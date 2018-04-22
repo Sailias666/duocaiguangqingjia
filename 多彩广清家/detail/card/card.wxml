@@ -1,6 +1,6 @@
 <view class='bg'>
   <view class="post-container" wx:for="{{activity}}" wx:key='{{index}}'>
-     <navigator url='../../detail/card/card/activityone/activity?id={{index+1}}' hover-class="navigator-hover">
+     <navigator url='../../detail/card/card/card_detail/card_detail?id={{index+1}}' hover-class="navigator-hover">
   <view  class='grid-item'  >  
       <view class='title-container'>
             <text class="post-title">{{item.activity_name}}</text>

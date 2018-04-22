@@ -3,13 +3,13 @@
 <view class='page-container'>
   <view class='title-container'>
     <view class='title-content'>
-      <text class='title-font'>{{data[id-1].name}}</text>
+      <text class='title-font'>{{data[0].name}}</text>
     </view>
   </view>
 
   <view class='deadline-container'>
     <view class='deadline-content'>
-      <text class='deadline-text'> 有效期：{{data[id].tov}}</text>
+      <text class='deadline-text'> 有效期：{{data[0].tov}}</text>
     </view>
   </view>
 
@@ -20,11 +20,12 @@
 
   <view class='content-container'>
     <view class='content-content'>
-      <text class='content-font'>{{data[id-1].desc}}</text>
+      <text class='content-font'>{{data[0].desc}}</text>
     </view>
   </view>
 
   <view class='button-container'>
-    <button  type='primary' class='button' bindtap='baoming'>我要报名</button>
+    <button  hidden="{{a_button}}" type='primary' class='button' bindtap='baoming'>点击报名</button>
+    <button  hidden="{{b_button}}" style='background:#CCCCCC' class='button' bindtap='baoming2'><text style='color:#fff;'>{{baoming}}</text></button>
   </view>
 </view>

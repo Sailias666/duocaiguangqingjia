@@ -1,5 +1,5 @@
 <?php
-	namespace app\wx\controller;
+	namespace app\index\controller;
 	use think\Controller;
 	use think\Db;
 	
@@ -82,6 +82,7 @@ class WXBizDataCrypt
 			$sessionKey = $_GET['session_key'];
 			$encryptedData=$_GET['encryptedData'];
 			$iv = $_GET['iv'];
+			$groupname = $_GET['groupname'];
 			$pc = new WXBizDataCrypt($appid, $sessionKey);
 			//echo $sessionKey;
 			$errCode = $pc->decryptData($encryptedData, $iv, $data );
@@ -94,52 +95,54 @@ class WXBizDataCrypt
 			} else {
 				print($errCode . "\n");
 			}
+			
 				$arr = json_decode($data2,true);
 				$payzt = $arr['stepInfoList'];
 				$arr=$payzt['30'];
 				$step_date=$arr['timestamp'];  //时间戳
 				$today_steps=$arr['step'];     //当前步数
-				$uptime=date('Y-m-d H:i:s',time());  //获取当前时间
-				$group_name='test1'; //团队名
+				$uptime=date('y-m-d',time());  //获取当前时间
+				$step_month=substr($uptime,3,2);
+				$step_day=substr($uptime,6,2);
 				
-				//$sj=Db::table('user_info')->field("session_Key")->find($openid);
-				//$sessionKey=$sj["session_Key"];
-			
 				$data=Db::name('user_info')->where ('session_key',$sessionKey)->find();
 				$openid=$data['user_openid'];
 				$p_openid=Db::name('personal_step_rank')->where ('user_openid',$openid)->find();
 				$p_openid=$p_openid['user_openid'];
-				
-				if($p_openid){
-					Db::table('personal_step_rank')->where('user_openid',$openid)->update(['today_steps' =>$today_steps,'step_date' =>$uptime]);
-				}else{
-					$data=Db::execute("insert into personal_step_rank value(null,?,?,?,null)",[$openid,$today_steps,$uptime]); 
-				}
-			
-			
-				
-				
-				$sum=0;
-				$month_step=$payzt;
-				for($i=0;$i<30;$i++){
-					
-					$sum+=$month_step[$i]['step'];	
-				}
-				$bushu=$sum/10000.00;
-				$month_step=$bushu;//月步数 万
-				//echo $p_openid;
-				$data=Db::name('user_info')->where ('session_key',$sessionKey)->find();
-				$openid=$data['user_openid'];
-				$p_openid=Db::name('personal_step_rank')->where ('user_openid',$openid)->find();
-				$p_openid=$p_openid['user_openid'];
-				
-				$pm_openid=Db::name('personal_step_rank_month')->where ('user_openid',$p_openid)->find();
+				$pm_openid=Db::name('personal_step_rank_month')->where ('user_openid',$openid)->find();
 				$pm_openid=$pm_openid['user_openid'];
-				if($pm_openid){
-					Db::table('personal_step_rank_month')->where('user_openid',$pm_openid)->update(['month_step' =>$month_step,'step_date' =>$uptime]);
-				}else{
-					$data=Db::execute("insert into personal_step_rank_month value(null,?,?,?)",[$p_openid,$month_step,$uptime]); 
+
+
+
+				if(!$pm_openid&&$openid!=''){
+					$data=Db::execute("insert into personal_step_rank_month value(null,?,?,date_format(now(),'%Y-%m-%d'))",[$openid,0]); 					
 				}
+				
+				if(!$p_openid&&$openid!=''){
+					$data=Db::execute("insert into personal_step_rank value(?,?,?,?)",[$openid,$today_steps,$uptime,$groupname]);
+				}
+				
+				$person_step_info=Db::name('personal_step_rank')->where("user_openid",$openid)->select();
+				$person_step_date=$person_step_info[0]['step_date'];
+				$person_step_month=substr($person_step_date,5,2);
+				$person_step_day=substr($person_step_date,8,2);
+				
+				if($step_month!=$person_step_month){
+					$data=Db::execute("update personal_step_rank_month set month_step=0 where 1=1;");
+					$data=Db::execute("update personal_step_rank set today_steps=0;");
+					$data=Db::execute("update personal_step_rank set step_date='$uptime';");
+				}else{
+					if($step_day!=$person_step_day){
+						$data=Db::execute("INSERT into personal_step_rank_month (SELECT null as id,a.user_openid,a.month_step+b.today_steps/1000,date_format(now(),'%Y-%m-%d') from (select user_openid,month_step from personal_step_rank_month) a LEFT JOIN (SELECT user_openid,today_steps from personal_step_rank)b ON a.user_openid=b.user_openid);");
+						$data=Db::execute("DELETE from personal_step_rank_month where today_date<date_format(now(),'%Y-%m-%d');");
+						$data=Db::execute("update personal_step_rank set today_steps=0;");
+						$data=Db::execute("update personal_step_rank set step_date=date_format(now(),'%Y-%m-%d');");
+					}
+					$data=Db::table('personal_step_rank')->where('user_openid',$openid)->update(['today_steps' =>$today_steps]);
+				}
+
+
+				
 		}
 	}
 

@@ -8,6 +8,7 @@ Page({
   data: {
   data:'',
   id:'',
+  baoming:'',
   },
 
   /**
@@ -16,10 +17,27 @@ Page({
   onLoad: function (options) {
     var that=this;
     this.setData({
-      id: options.id
+      id: options.id,
     }) 
+    if (options.baoming.substring(3, 6)!=''){
+      that.setData({
+        baoming : options.baoming.substring(3, 6),
+        a_button: true,
+        b_button: false,
+      }) 
+    }else{
+      that.setData({
+        baoming: '我要报名',
+        a_button: false,
+        b_button: true,
+      }) 
+    }
     wx.request({
-      url: 'http://plahui.top/index.php/wx/wx/challenge_in',
+      url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/challenge_in',
+      data: {
+        id: options.id,
+      },
+      method: 'GET',
       success:function(res){
         console.log('挑战项目******',res);
         //console.log(res.data[0].name);
@@ -54,7 +72,7 @@ Page({
     }
     var openid = value.data.openid;
     wx.request({
-        url: 'http://plahui.top/index.php/wx/wx/baoming', //报名接口
+      url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/baoming', //报名接口
         data: {
           openid:openid,
           activitynum: that.data.id,
@@ -65,10 +83,14 @@ Page({
           wx.showModal({
             content: '报名成功，确认返回',
             success: function (res) {
+              that.setData({
+                a_button: true,
+                b_button: false,
+              })
               if (res.confirm) {
                 console.log('用户点击确定')
-                wx.switchTab({
-                  url: '../../../pages/index/index',
+                wx.navigateBack({
+                  url: '../../../detail/challenge/challenge_detail/challenge_detail',
                 })
               } else if (res.cancel) {
                 console.log('用户点击取消')
@@ -87,6 +109,14 @@ Page({
     
      
     
+  },
+
+  baoming2:function(){
+    wx.showToast({
+      title: '已报名',
+      icon: 'success',
+      duration: 1000
+    })  
   },
 
   /**

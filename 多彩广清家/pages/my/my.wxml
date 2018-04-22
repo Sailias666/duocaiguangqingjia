@@ -11,6 +11,17 @@
 
   <view class='user-item-container'>
     <view class='user-item'>
+      <view class='user-item-content' >
+        <image class='user-item-icon' src='/images/zubie.png'></image>
+        <text class='user-item-font'>组别信息</text>
+        <view class='user-item-enter'>
+          <image class='user-item-arrow' src='/images/arrowasdf.png'></image>
+          <text class='user-item-int'>{{groupname}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class='user-item'>
       <view class='user-item-content' catchtap='goto_achi'>
         <image class='user-item-icon' src='/images/shouji.png'></image>
         <text class='user-item-font'>积分兑换</text>

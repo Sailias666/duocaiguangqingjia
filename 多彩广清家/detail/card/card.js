@@ -15,7 +15,7 @@ Page({
   onLoad: function (options) {
     var that=this;
    wx.request({
-     url: 'http://plahui.top/index.php/wx/wx/rank_a',
+     url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/rank_a',
      data:{
 
      },
@@ -28,5 +28,32 @@ Page({
        
      }
    })
-  }
+  },
+
+    onPullDownRefresh: function () {
+    wx.showNavigationBarLoading();
+    var that = this;
+    wx.request({
+      url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/rank_a',
+      data: {
+
+      },
+      success: function (res) {
+        wx.stopPullDownRefresh();
+        wx.hideNavigationBarLoading();
+        wx.showToast({
+          title: '刷新成功',
+          icon: 'success',
+          duration: 1000
+
+        })
+        console.log('打卡系统接口', res.data);
+        var data = res.data;
+        that.setData({
+          activity: data,
+        })
+
+      }
+    })
+  }, 
 })

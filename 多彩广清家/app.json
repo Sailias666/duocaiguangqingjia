@@ -1,8 +1,8 @@
 {
   "pages": [
+
     "pages/index/index",
     "pages/my/my",
-    "pages/yz/yz",
     "pages/my/medal/medal",
     "pages/my/achievement/achi",
     "pages/my/achievemen/ach",
@@ -11,8 +11,8 @@
     "detail/rank/rank",
     "detail/game/game",
     "detail/card/card/activityone/activity",
-    "detail/challenge/challenge_detail/challenge_detail"
-   
+    "detail/challenge/challenge_detail/challenge_detail",
+    "detail/card/card/card_detail/card_detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -27,7 +27,7 @@
         "text": "功能菜单",
         "iconPath": "images/favorite.png",
         "selectedIconPath": "images/favorite1.png",
-        "selectedColor" : "#FFFFCC"
+        "selectedColor": "#FFFFCC"
       },
       {
         "pagePath": "pages/my/my",

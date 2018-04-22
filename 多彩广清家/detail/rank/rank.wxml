@@ -81,7 +81,7 @@
             </view>
           </view>
           <view class='rank-font'>
-            <text class='rank-font'>{{item['month_step']*10}} K</text>
+            <text class='rank-font'>{{item['month_step']}} K</text>
           </view>
         </view>
         <view style='border-top:1px solid #996699;width:90%;margin-left:20px;'></view>
@@ -106,7 +106,7 @@
             </view>
           </view>
           <view class='rank-font'>
-            <text class='rank-font'>{{item['today_steps']}}</text>
+            <text class='rank-font'>{{item['steps']}}K</text>
           </view>
         </view>
         <view style='border-top:1px solid #996699;width:90%;margin-left:20px;'></view>
@@ -131,7 +131,7 @@
             </view>
           </view>
           <view class='rank-font'>
-            <text class='rank-font'>{{item['teps']*10}} K</text>
+            <text class='rank-font'>{{item['steps']}}K</text>
           </view>
         </view>
         <view style='border-top:1px solid #996699;width:90%;margin-left:20px;'></view>

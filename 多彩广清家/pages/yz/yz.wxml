@@ -1,9 +1,0 @@
-
-<view>
- <form bindsubmit="yz">
-    <view>
-      <input  maxlength="10" placeholder="请选择组名" name='text'/>
-    </view>
-    <button form-type="submit">提交</button>
-  </form>
-</view>

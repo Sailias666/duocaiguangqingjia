@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "我要挑战"
+  "navigationBarTitleText": "我要挑战",
+  "enablePullDownRefresh": true
 }

@@ -19,7 +19,7 @@ Page({
         console.log('获取缓存成功', value.data.openid);
         var openid = value.data.openid;
         wx.request({
-          url: 'http://plahui.top/index.php/wx/wx/chengjiu',     //发出请求，拿openid去找数据库
+          url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/chengjiu',     //发出请求，拿openid去找数据库
           data: {
             openid: openid,
           },

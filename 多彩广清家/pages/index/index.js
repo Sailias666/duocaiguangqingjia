@@ -1,5 +1,17 @@
 var app=getApp();
 var common = require('../../utils/util.js');
+
+
+const groupinfo=[];
+wx.request({
+  url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/getgroupinfo',
+  success: function (res) {
+    for (var i = 0; i < res.data.length; i++) {
+      groupinfo.push(res.data[i]['group_name']);
+    }
+  }
+})
+
 Page({
   data: {
     openid:'',
@@ -11,9 +23,13 @@ Page({
       userInfo: {},
       today_steps:'',
       step_rank: '',
+      hiddenmodalput:true,
     },
 onLoad:function(){
   var that=this;
+  that.setData({
+    groupinfo: groupinfo,
+  })
   wx.login({
     success: function (res) {
       var code = res.code;
@@ -27,7 +43,7 @@ onLoad:function(){
             console.log('将个人信息放入缓存', user);
           } catch (e) { }
           wx.request({                                      //登录请求并将用户名头像上传数据库的用户信息表
-            url: 'http://plahui.top/index.php/wx/wx/index',
+            url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/index',
             data: {
               code: code,
               name: user.nickName,
@@ -45,95 +61,105 @@ onLoad:function(){
                           if (value) {
                             console.log('获取缓存成功', value.data.openid);
                             var openid = value.data.openid;
-                            wx.request({
-                              url: 'http://plahui.top/index.php/wx/wx/yz_group',     //发出请求，拿openid去找数据库user_info表中的团队名group_name 
-                              data: {
-                                openid:openid,
-                              },
-                              success: function (res) {
-                                if (res.data == 1) {          //如果数据表中group_name不存在，跳转到yz页面添加团队信息
-                                  wx.redirectTo({
-                                    url: '../yz/yz'
-                                  })
-                                } else {    }
-                              }
-                            })
+                                var session_key = res.data.session_key;
+                                wx.getWeRunData({            //微信运动api，
+                                  success(res) {
+                                    const encryptedData = res.encryptedData
+                                    const iv = res.iv
+                                    console.log(wx.getStorageSync('groupname'));
+                                    wx.request({
+                                      url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/get/decrypt',  //将从微信运动api获取到的 en iv 和 sessionkey  发送到服务器进行解密
+                                      data: {
+                                        encryptedData: encryptedData,
+                                        iv: iv,
+                                        session_key: session_key,
+                                        groupname: wx.getStorageSync('groupname'),
+                                      },
+                                      method: 'GET',
+                                      success: function (res) {    //解密成功回调函数
+                                        console.log('获取步数', res);
+                                        var yundong = res.data.stepInfoList;
+                                        var bushu = yundong[30].step;
+                                        var timestamp = yundong[30].timestamp;
+                                        that.setData({
+                                          today_steps: bushu,
+                                        })
+                                        wx.request({            //获取个人排行榜排名数据表
+                                          url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/rank',
+                                          data: '',
+                                          header: {},
+                                          method: 'GET',
+                                          dataType: 'json',
+                                          responseType: 'text',
+                                          success: function (res) {
+                                            var data = res.data;//数组
+                                            wx.setStorage({
+                                              key: "rank",
+                                              data: data,
+                                            })
+                                            wx.getStorage({
+                                              key: 'rank',
+                                              success: function (res) {
+                                                console.log('缓存成功->数据库排序后', res.data);
+                                                var value = res.data;
+                                                wx.login({
+                                                  success: function (res) {
+                                                    var code = res.code;
+                                                    wx.request({
+                                                      url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/getsek',
+                                                      data: {
+                                                        code: code,
+                                                      },
+                                                      success: function (res) {
+                                                        var openid = res.data.openid;
+                                                        for (var i = 0; i < value.length; i++) {
+                                                          if (openid == value[i].user_openid) {
+                                                            console.log('排名', i + 1);
+                                                            var rank = i + 1;
+                                                            that.setData({
+                                                              step_rank: rank,
+                                                            })
+                                                          }
+                                                        }
+                                                        wx.request({
+                                                          url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/yz_group',
+                                                          data: {
+                                                            openid: openid,
+                                                          },
+                                                          success: function (res) {
+                                                            if (res.data == 1) {          //如果数据表中group_name不存在，跳转到yz页面添加团队信息
+                                                              that.setData({
+                                                                hiddenmodalput: false,
+                                                              })
+                                                            } else {
+                                                              that.setData({
+                                                                hiddenmodalput: true,
+                                                              })
+                                                              wx.setStorage({
+                                                                key: 'groupname',
+                                                                data: res.data,
+                                                              })
+                                                            }
+                                                          }
+                                                        })
+                                                      },
+                                                    })
+                                                  }
+                                                })
+                                              }
+                                            })
+                                          },
+                                        })
+                                      }
+                                    })
+                                  }
+                                })//asd
+
                           }
                         } catch (e) {
                           console.log('获取缓存openid失败,不能完成添加团队等', e);
                           common.show('错误');
                         }
-              var session_key = res.data.session_key;
-              wx.getWeRunData({            //微信运动api，
-                success(res) {
-                  const encryptedData = res.encryptedData
-                  const iv = res.iv
-                  wx.request({
-                    url: 'http://plahui.top/index.php/wx/get/decrypt',  //将从微信运动api获取到的 en iv 和 sessionkey  发送到服务器进行解密
-                    data: {
-                      encryptedData: encryptedData,
-                      iv: iv,
-                      session_key: session_key
-                    },
-                    method: 'GET',
-                    success: function (res) {    //解密成功回调函数
-                      console.log('获取步数', res);
-                      var yundong = res.data.stepInfoList;
-                      var bushu = yundong[30].step;
-                      var timestamp = yundong[30].timestamp;
-                      that.setData({
-                        today_steps:bushu,
-                      })
-                      wx.request({            //获取个人排行榜排名数据表
-                        url: 'http://plahui.top/index.php/wx/wx/rank',
-                        data: '',
-                        header: {},
-                        method: 'GET',
-                        dataType: 'json',
-                        responseType: 'text',
-                        success: function (res) {
-                          var data = res.data;//数组
-                          wx.setStorage({
-                            key: "rank",
-                            data: data,
-                          })
-                          wx.getStorage({
-                            key: 'rank',
-                            success: function (res) {
-                              console.log('缓存成功->数据库排序后', res.data);
-                              var value = res.data;
-                              wx.login({
-                                success: function (res) {
-                                  var code = res.code;
-                                  wx.request({
-                                    url: 'http://plahui.top/index.php/wx/wx/getsek',
-                                    data: {
-                                      code: code,
-                                    },
-                                    success: function (res) {
-                                      var openid = res.data.openid;
-                                      for (var i = 0; i < value.length; i++) {
-                                        if (openid == value[i].user_openid) {
-                                          console.log('排名', i + 1);
-                                          var rank = i + 1;
-                                          that.setData({
-                                            step_rank:rank,
-                                          })
-                                        }
-                                      }
-                                    },
-                                  })
-                                }
-                              })
-                            }
-                          })
-                        },
-                      })
-                    }
-                  })
-                }
-              })
-
             },
           })
         },
@@ -141,8 +167,9 @@ onLoad:function(){
     }
   })
    wx.request({
-    url: 'http://plahui.top/index.php/wx/wx/index_activity',
+     url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/index_activity',
     success: function (res) {
+      console.log('activity',res);
       that.setData({
           img: res.data,
       })
@@ -158,7 +185,7 @@ onLoad:function(){
     wx.login({
       success: function (res) {
         wx.request({
-              url: 'http://plahui.top/index.php/wx/wx/getsek',
+          url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/getsek',
               data: {
                 code: res.code,
               },
@@ -170,11 +197,12 @@ onLoad:function(){
                     const encryptedData = res.encryptedData
                     const iv = res.iv
                     wx.request({
-                      url: 'http://plahui.top/index.php/wx/get/decrypt',
+                      url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/get/decrypt',
                       data: {
                         encryptedData: res.encryptedData,
                         iv: res.iv,
-                        session_key: session_key
+                        session_key: session_key,
+                        groupname: wx.getStorageSync('groupname'),
                       },
                       method: 'GET',
                       success: function (res) {
@@ -186,7 +214,7 @@ onLoad:function(){
                           today_steps: bushu,
                         })
                         wx.request({
-                          url: 'http://plahui.top/index.php/wx/wx/rank',
+                          url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/rank',
                           data: '',
                           header: {},
                           method: 'GET',
@@ -207,7 +235,7 @@ onLoad:function(){
                                   success: function (res) {
                                     var code = res.code;
                                     wx.request({
-                                      url: 'http://plahui.top/index.php/wx/wx/getsek',
+                                      url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/getsek',
                                       data: {
                                         code: code,
                                       },
@@ -229,7 +257,7 @@ onLoad:function(){
                               }
                             })
                             wx.request({
-                              url: 'http://plahui.top/index.php/wx/wx/index_activity',
+                              url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/index_activity',
                               success: function (res) {
                                 that.setData({
                                   img: res.data,
@@ -261,6 +289,67 @@ onLoad:function(){
      console.log('所有缓存', res);
      common.clearstor('uesrinfo')
    },
+
+   bindPickerChange:function(e){
+    var that = this;
+    var group = groupinfo;
+    that.setData({
+      index : e.detail.value,
+    })
+    wx.setStorage({
+      key: 'groupname',
+      data: group[e.detail.value],
+    })
+   },
+
+  confirm:function(){
+    var that = this;
+    var openid = wx.getStorageSync('openid').data['openid'];
+    wx.getStorage({
+      key: 'groupname',
+      success: function(res) {
+        var groupname=res.data;
+        console.log(groupname);
+        wx.request({
+          url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/yzsubmit',
+          data: {
+            openid: openid,
+            groupname: groupname,
+          },
+          success: function (res) {
+            console.log(res);
+            if (res.data == 0) {
+              wx.showToast({
+                title: '提交成功',
+                icon: 'success',
+                duration: 2000
+              })
+              that.setData({
+                hiddenmodalput: true
+              })
+            } else {
+              wx.showToast({
+                title: '提交失败',
+                icon: 'success',
+                duration: 2000
+              })
+            }
+          }
+        })
+      },
+    })
+    common.clearstor('groupname')
+  },
+
+   cancel:function(){
+     wx.showToast({
+       title: '请提交分组信息',
+       icon: 'success',
+       duration: 1000
+     })  
+   },
+
+
 
   tzcard: function () {
     wx.navigateTo({

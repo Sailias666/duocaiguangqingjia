@@ -15,7 +15,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     console.log('个人步数天排行');
-    common.rank_all('http://plahui.top/index.php/wx/wx/integral', 'gral');//个人积分排行
+    common.rank_all('https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/integral', 'gral');//个人积分排行
     var a = wx.getStorageSync('gral');
     that.setData({
        data: a,
@@ -33,7 +33,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that = this;
+    console.log('个人步数天排行');
+    common.rank_all('https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/integral', 'gral');//个人积分排行
+    var a = wx.getStorageSync('gral');
+    that.setData({
+      data: a,
+    })
   },
 
   /**
@@ -54,7 +60,22 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    wx.showNavigationBarLoading();
+    var that = this;
+    console.log('个人步数天排行');
+    common.rank_all('https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/integral', 'gral');//个人积分排行
+    var a = wx.getStorageSync('gral');
+    that.setData({
+      data: a,
+    })
+    wx.stopPullDownRefresh();
+    wx.hideNavigationBarLoading();
+    wx.showToast({
+      title: '刷新成功',
+      icon: 'success',
+      duration: 1000
+
+    })
   },
 
   /**

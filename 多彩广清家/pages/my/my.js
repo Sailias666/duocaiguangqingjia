@@ -6,6 +6,8 @@ Page({
 
   data: {
     integration:'0',
+
+
   },
 
   /**
@@ -13,13 +15,14 @@ Page({
    */
   onLoad: function (options) {
     var that=this;
+
     try {
       var value = wx.getStorageSync('openid')    //取出缓存的openid
       if (value) {
         console.log('获取缓存成功', value.data.openid);
         var openid = value.data.openid;
         wx.request({
-          url: 'http://plahui.top/index.php/wx/wx/getuserinfo',     //发出请求，拿openid去找数据库user_info表
+          url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/getuserinfo',     //发出请求，拿openid去找数据库user_info表
           data: {
             openid: openid,
           },
@@ -27,6 +30,7 @@ Page({
             console.log(res);
             that.setData({
               integration: res.data.user_integral,
+              groupname: res.data.group_name
             })
           }
         })

@@ -19,7 +19,7 @@ function getopenid(){
   wx.login({
     success: function (res) {
       wx.request({
-        url: 'http://plahui.top/index.php/index/wx/getsek',
+        url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/getsek',
         data: {
           code: res.code,
         },
@@ -56,7 +56,7 @@ function shouquanuserinfo(){
             console.log('将个人信息放入缓存', user);
           } catch (e) { }
           wx.request({  //登录请求并将用户名头像上传数据库的用户信息表
-            url: 'http://plahui.top/index.php/index/wx/index',
+            url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/index',
             data: {
               code: code,
               name: user.nickName,

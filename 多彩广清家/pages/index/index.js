@@ -2,15 +2,8 @@ var app=getApp();
 var common = require('../../utils/util.js');
 
 
-const groupinfo=[];
-wx.request({
-  url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/getgroupinfo',
-  success: function (res) {
-    for (var i = 0; i < res.data.length; i++) {
-      groupinfo.push(res.data[i]['group_name']);
-    }
-  }
-})
+const groupinfo=['测试组1','测试组2','测试组3'];
+
 
 Page({
   data: {
@@ -30,6 +23,7 @@ onLoad:function(){
   that.setData({
     groupinfo: groupinfo,
   })
+  console.log(groupinfo);
   wx.login({
     success: function (res) {
       var code = res.code;
@@ -66,7 +60,7 @@ onLoad:function(){
                                   success(res) {
                                     const encryptedData = res.encryptedData
                                     const iv = res.iv
-                                    console.log(wx.getStorageSync('groupname'));
+                                    console.log('group_name:',wx.getStorageSync('groupname'));
                                     wx.request({
                                       url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/get/decrypt',  //将从微信运动api获取到的 en iv 和 sessionkey  发送到服务器进行解密
                                       data: {
@@ -127,6 +121,7 @@ onLoad:function(){
                                                             openid: openid,
                                                           },
                                                           success: function (res) {
+                                                            
                                                             if (res.data == 1) {          //如果数据表中group_name不存在，跳转到yz页面添加团队信息
                                                               that.setData({
                                                                 hiddenmodalput: false,
@@ -139,6 +134,7 @@ onLoad:function(){
                                                                 key: 'groupname',
                                                                 data: res.data,
                                                               })
+                                                              
                                                             }
                                                           }
                                                         })
@@ -291,6 +287,7 @@ onLoad:function(){
    },
 
    bindPickerChange:function(e){
+     console.log("点击分组");
     var that = this;
     var group = groupinfo;
     that.setData({
@@ -300,6 +297,7 @@ onLoad:function(){
       key: 'groupname',
       data: group[e.detail.value],
     })
+    console.log(group[e.detail.value]);
    },
 
   confirm:function(){

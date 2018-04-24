@@ -68,10 +68,9 @@
         </navigator>
     </view>
   </view>
-
  <modal hidden="{{hiddenmodalput}}" showCancel="false" title="请选择分组信息" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm" >  
     <view class="section">
-  <picker bindchange="bindPickerChange" value="{{index}}" range="{{groupinfo}}">
+  <picker mode = "selector" bindchange="bindPickerChange" value="{{index}}" range="{{groupinfo}}">
     <view class="picker">
       当前选择：{{groupinfo[index]}}
     </view>

@@ -97,10 +97,7 @@
           <view class='rank-pic-container'>
             <image src='/images/medal{{index}}.png' class='rank-pic'></image>
           </view>
-          <view class='rank-user-ava-container'>
-            <image class='rank-user-ava' src='{{item.touxiang}}'></image>
-          </view> 
-          <view class='rank-name'>
+          <view class='rank-name' style='margin-left:20px;'>
             <view class='rank-name-container'>
               <text class='rank-name-font'>{{item['group_name']}}</text>
             </view>
@@ -122,10 +119,7 @@
           <view class='rank-pic-container'>
             <image src='/images/medal{{index}}.png' class='rank-pic'></image>
           </view>
-          <view class='rank-user-ava-container'>
-            <image class='rank-user-ava' src='{{item.touxiang}}'></image>
-          </view> 
-          <view class='rank-name'>
+          <view class='rank-name' style='margin-left:20px;'>
             <view class='rank-name-container'>
               <text class='rank-name-font'>{{item['group_name']}}</text>
             </view>

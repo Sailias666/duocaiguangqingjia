@@ -5,8 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    id:'',
+    id: '',
     data: '',
+    currentTab:0,
   },
 
   /**
@@ -27,8 +28,8 @@ Page({
 
     this.setData({
       id: options['id'],
-      hiddenmodalput:true,
-    })  
+      hiddenmodalput: true,
+    })
     wx.setStorage({
       key: 'activity_num',
       data: options['id'],
@@ -51,14 +52,14 @@ Page({
           },
           success: function (res) {
             that.setData({
-              data:res.data,
+              data: res.data,
             })
             console.log(res);
             var comment_id = '';
-            for(var i=0;i<res.data.length;i++){
+            for (var i = 0; i < res.data.length; i++) {
               comment_id = comment_id + res.data[i]['comment_id'] + ','
             }
-            comment_id=comment_id.substring(0, comment_id.length - 1)
+            comment_id = comment_id.substring(0, comment_id.length - 1)
             wx.setStorage({
               key: 'comment_id_list',
               data: comment_id,
@@ -73,6 +74,17 @@ Page({
                   pinglun: res.data,
                 })
                 console.log(res.data);
+
+                wx.request({
+                  url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/get_gaoguan_rank',
+                  data: {
+                  },
+                  success: function (res) {
+                    that.setData({
+                      gaoguan: res.data,
+                    })
+                  }
+                })
               }
             })
           }
@@ -85,7 +97,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
   // 滑动切换tab 
   bindChange: function (e) {
@@ -108,12 +120,12 @@ Page({
    */
   onShow: function () {
     console.log('onshow');
-      var that = this;
-      var id = wx.getStorageSync('activity_num');
-      this.setData({
-        id: id,
-        hiddenmodalput: true,
-      })  
+    var that = this;
+    var id = wx.getStorageSync('activity_num');
+    this.setData({
+      id: id,
+      hiddenmodalput: true,
+    })
     wx.request({
       url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/get_activity',
       data: {
@@ -134,7 +146,7 @@ Page({
             that.setData({
               data: res.data,
             })
-            console.log('comment',res);
+            console.log('comment', res);
             var comment_id = '';
             for (var i = 0; i < res.data.length; i++) {
               comment_id = comment_id + res.data[i]['comment_id'] + ','
@@ -166,14 +178,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
@@ -244,20 +256,20 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   },
 
-  pinglun:function(e){
+  pinglun: function (e) {
     var that = this;
     that.setData({
-      hiddenmodalput:false,
+      hiddenmodalput: false,
     })
     wx.setStorage({
       key: 'comment_id',
@@ -268,36 +280,36 @@ Page({
     var that = this;
     wx.getStorage({
       key: 'pinglun_msg',
-      success: function(res) {
-        var pinglun_msg=res.data;
+      success: function (res) {
+        var pinglun_msg = res.data;
         wx.getStorage({
           key: 'comment_id',
-          success: function(res) {
+          success: function (res) {
             var comment_id = res.data;
             wx.getStorage({
               key: 'nickName',
               success: function (res) {
-                 var user_name=res.data;
-                 wx.request({
-                   url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/add_pinglun',
-                   data: {
-                     user_name: user_name,
-                     comment_id: comment_id,
-                     pinglun_msg: pinglun_msg,
-                   },
-                   success: function (res) {
-                     console.log(res);
-                     wx.showToast({
-                       title: '正在提交',
-                       icon: 'loading',
-                       duration: 1000
-                     })
-                     that.setData({
-                       hiddenmodalput: true,
-                     })
+                var user_name = res.data;
+                wx.request({
+                  url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/add_pinglun',
+                  data: {
+                    user_name: user_name,
+                    comment_id: comment_id,
+                    pinglun_msg: pinglun_msg,
+                  },
+                  success: function (res) {
+                    console.log(res);
+                    wx.showToast({
+                      title: '正在提交',
+                      icon: 'loading',
+                      duration: 1000
+                    })
+                    that.setData({
+                      hiddenmodalput: true,
+                    })
                     wx.getStorage({
                       key: 'comment_id_list',
-                      success: function(res) {
+                      success: function (res) {
                         console.log(res.data);
                         wx.request({
                           url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/get_pinglun',
@@ -313,9 +325,9 @@ Page({
                         })
                       },
                     })
-                     
-                   }
-                 })
+
+                  }
+                })
               },
             })
 
@@ -323,10 +335,10 @@ Page({
         })
       },
     })
-    
+
   },
 
-  input:function(e){
+  input: function (e) {
     var that = this;
     wx.setStorage({
       key: 'pinglun_msg',
@@ -334,14 +346,14 @@ Page({
     })
   },
 
-  cancel:function(){
+  cancel: function () {
     var that = this;
     that.setData({
       hiddenmodalput: true,
     })
   },
 
-  baoming:function(){
+  baoming: function () {
     wx.navigateTo({
       url: '../activityone/activity',
     })

@@ -1,6 +1,5 @@
 {
   "pages": [
-
     "pages/index/index",
     "pages/my/my",
     "pages/my/medal/medal",
@@ -12,7 +11,8 @@
     "detail/game/game",
     "detail/card/card/activityone/activity",
     "detail/challenge/challenge_detail/challenge_detail",
-    "detail/card/card/card_detail/card_detail"
+    "detail/card/card/card_detail/card_detail",
+    "detail/card/card/gaoguan/gaoguan"
   ],
   "window": {
     "backgroundTextStyle": "light",

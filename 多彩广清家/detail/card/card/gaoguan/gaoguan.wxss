@@ -268,6 +268,7 @@ border-bottom: 1px solid #EEEEEE;
   font-size: 13px;
   font: bold 5px;
   color: #336699;
+  margin-bottom: 10px;
 }
 
 .pinglun-content{
@@ -281,4 +282,101 @@ border-bottom: 1px solid #EEEEEE;
   width: 40rpx;
   float: right;
 
+}
+
+
+.rank-container{
+  flex-direction: column;
+  display: flex;
+}
+
+.rank-item-container{
+  flex-direction: column;
+  display: flex;
+  height: 70px;
+  width: 100%;
+}
+
+.rank-item{
+  flex-direction: row;
+  display: flex;
+  height: 60px;
+  width:100%;
+}
+
+.rank-pic-container{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: 10%;
+}
+
+.rank-name{
+
+  margin-top: 15px;
+  height: 60px;
+  width: 40%;
+}
+
+.rank-int{
+  margin-top: 16px;
+  height: 60px;
+  width: 15%;
+}
+
+.rank-pic{
+  margin-top: 10px;
+  height: 30px;
+  width: 50rpx;
+}
+.rank-name-container{
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  width: 80%;
+}
+
+.rank-name-font{
+  float: left;
+  font: boild 15px;
+  font-family: MicroSoft Yahei;
+  color: #006666;
+}
+
+.rank-user-ava-container{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  height: 60px;
+  width: 20%;
+
+}
+
+.rank-user-ava{
+  height: 50px;
+  width: 50px;
+    border-radius:100%;
+}
+
+.rank-int-font{
+  font: boild 10px;
+  font-family: MicroSoft Yahei;
+  color: #006666 ;
+}
+.rank-font{
+  font: boild 10px;
+  font-family: MicroSoft Yahei;
+  color: #006666 ;
+  margin-top: 15px;
+}
+
+.rank-num{
+  height: 60px;
+  width: 10%;
+}
+
+.rank-num-pic{
+  height: 55px;
+  width: 40px;
 }

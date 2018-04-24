@@ -13,6 +13,12 @@
   display: flex;  
   flex-direction: row;  
 }
+
+.picker{
+  padding: 26rpx;
+  background-color: #EEEEEE;
+}
+
 .hang{
     display: flex;
     align-content: center;

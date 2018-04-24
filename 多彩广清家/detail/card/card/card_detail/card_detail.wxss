@@ -15,6 +15,10 @@
   height: 50px;
   color: #006666; 
 }
+.comment-item-content-pic{
+  margin-top:10px;
+  margin-bottom:10px;
+}
 .swiper-title-1-container{
   flex-direction: column;
   display: flex;

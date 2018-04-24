@@ -220,6 +220,7 @@ Page({
             var comment_id = '';
             for (var i = 0; i < res.data.length; i++) {
               comment_id = comment_id + res.data[i]['comment_id'] + ','
+              
             }
             comment_id = comment_id.substring(0, comment_id.length - 1)
             wx.setStorage({
@@ -352,7 +353,14 @@ Page({
       hiddenmodalput: true,
     })
   },
-
+  viewpic: function (e) {
+    console.log("click pic")
+    wx.previewImage({
+      current: e.target.dataset['src'],
+      urls: [e.target.dataset['src']]
+    })
+    console.log(e.target.dataset['src'])
+  },
   baoming: function () {
     wx.navigateTo({
       url: '../activityone/activity',

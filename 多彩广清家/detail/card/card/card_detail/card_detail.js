@@ -333,6 +333,14 @@ Page({
       data: e.detail.value,
     })
   },
+  viewpic:function(e){
+    console.log("click pic")
+    wx.previewImage({
+      current: e.target.dataset['src'], 
+      urls: [e.target.dataset['src']]
+    })  
+    console.log(e.target.dataset['src'])
+  },
 
   cancel:function(){
     var that = this;

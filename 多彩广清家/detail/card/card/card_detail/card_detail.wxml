@@ -62,8 +62,8 @@
             <text class='comment-item-content-content-font'>{{data[index]['comment_content']}}</text>
           </view>
 
-          <view class='comment-item-content-pic' style='width:200rpx;height:200rpx;margin-top:10px;margin-bottom:10px;'>
-            <image  style='width:200rpx;height:200rpx;' src="https://m.hola-chino.cn/Martin/tp5/public/upload/{{data[index]['comment_pic']}}"></image>
+          <view catchtap='viewpic' class='comment-item-content-pic'>
+            <image mode="aspectFill" data-src="https://m.hola-chino.cn/Martin/tp5/public/upload/{{data[index]['comment_pic']}}" style='width:200rpx;height:200rpx;' src="https://m.hola-chino.cn/Martin/tp5/public/upload/{{data[index]['comment_pic']}}"></image>
           </view>
 
           <view class='comment-item-content-pinglun-button'>

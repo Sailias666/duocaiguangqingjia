@@ -23,6 +23,11 @@
   width: 100%;
 }
 
+.comment-item-content-pic{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
 .swiper-title-1-font{
   height: 50px;
   font-size: 20px;
@@ -37,7 +42,6 @@
 }
 .swiper-box{ 
   display: block;
-  height: 100%;
   width: 100%;
   overflow: hidden;
  }

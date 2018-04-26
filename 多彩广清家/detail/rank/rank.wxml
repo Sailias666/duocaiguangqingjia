@@ -41,7 +41,7 @@
 <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
   <swiper-item>
     <view class='rank-container'>
-      <view style='border-top:1px solid #996699;width:90%;margin-top:20px;margin-left:20px;'></view>
+      <view style='border-top:1px solid #006666;width:90%;margin-top:20px;margin-left:20px;'></view>
       <view class='rank-item-container' wx:for="{{data}}" wx:key='{{index}}'>
         <view class='rank-item'>
           <view class='rank-pic-container'>
@@ -59,14 +59,14 @@
             <text class='rank-int-font'>{{item['today_steps']}}</text>
           </view>
         </view>
-        <view style='border-top:1px solid #996699;width:90%;margin-left:20px;'></view>
+        <view style='border-top:1px solid #006666;width:90%;margin-left:20px;'></view>
       </view>
     </view>
   </swiper-item>
 
   <swiper-item>
     <view class='rank-container'>
-      <view style='border-top:1px solid #996699;width:90%;margin-top:20px;margin-left:20px;'></view>
+      <view style='border-top:1px solid #006666;width:90%;margin-top:20px;margin-left:20px;'></view>
       <view class='rank-item-container' wx:for="{{data_month_personal}}" wx:key='{{index}}'>
         <view class='rank-item'>
           <view class='rank-pic-container'>
@@ -84,14 +84,14 @@
             <text class='rank-font'>{{item['month_step']}} K</text>
           </view>
         </view>
-        <view style='border-top:1px solid #996699;width:90%;margin-left:20px;'></view>
+        <view style='border-top:1px solid #006666;width:90%;margin-left:20px;'></view>
       </view>
     </view>
   </swiper-item>
 
   <swiper-item>
     <view class='rank-container'>
-      <view style='border-top:1px solid #996699;width:90%;margin-top:20px;margin-left:20px;'></view>
+      <view style='border-top:1px solid #006666;width:90%;margin-top:20px;margin-left:20px;'></view>
       <view class='rank-item-container' wx:for="{{group_step_rank}}" wx:key='{{index}}'>
         <view class='rank-item'>
           <view class='rank-pic-container'>
@@ -102,20 +102,21 @@
               <text class='rank-name-font'>{{item['group_name']}}</text>
             </view>
           </view>
+          <view class='rank-user-ava-container2'></view>
           <view class='rank-font'>
             <text class='rank-font'>{{item['steps']}}K</text>
           </view>
         </view>
-        <view style='border-top:1px solid #996699;width:90%;margin-left:20px;'></view>
+        <view style='border-top:1px solid #006666;width:90%;margin-left:20px;'></view>
       </view>
     </view>
   </swiper-item>
 
   <swiper-item>
     <view class='rank-container'>
-      <view style='border-top:1px solid #996699;width:90%;margin-top:20px;margin-left:20px;'></view>
+      <view style='border-top:1px solid #006666;width:90%;margin-top:20px;margin-left:20px;'></view>
       <view class='rank-item-container' wx:for="{{group_step_rank_month}}" wx:key='{{index}}'>
-        <view class='rank-item'>
+        <view class='rank-item' >
           <view class='rank-pic-container'>
             <image src='/images/medal{{index}}.png' class='rank-pic'></image>
           </view>
@@ -124,11 +125,12 @@
               <text class='rank-name-font'>{{item['group_name']}}</text>
             </view>
           </view>
+          <view class='rank-user-ava-container2'></view>
           <view class='rank-font'>
             <text class='rank-font'>{{item['steps']}}K</text>
           </view>
         </view>
-        <view style='border-top:1px solid #996699;width:90%;margin-left:20px;'></view>
+        <view style='border-top:1px solid #006666;width:90%;margin-left:20px;'></view>
       </view>
     </view>
   </swiper-item>

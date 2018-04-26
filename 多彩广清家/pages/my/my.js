@@ -117,6 +117,13 @@ Page({
       url: './medal/medal',
     })
   },
+  qidai: function () {
+    wx.showToast({
+      title: '敬请期待',
+      icon: 'success',
+      duration: 1000
+    })
+  },
   goto_ach: function () {
     wx.navigateTo({
       url: './achievemen/ach',

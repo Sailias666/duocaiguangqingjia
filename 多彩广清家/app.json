@@ -27,7 +27,7 @@
         "text": "功能菜单",
         "iconPath": "images/favorite.png",
         "selectedIconPath": "images/favorite1.png",
-        "selectedColor": "#FFFFCC"
+        "selectedColor": "#006666"
       },
       {
         "pagePath": "pages/my/my",

@@ -8,7 +8,7 @@
   display: inline-block; 
   width: 33%; 
   height: 60px;
-  color: #777777; 
+  color: #006666; 
 }
 
 .swiper-title-1-container{
@@ -27,8 +27,8 @@
 
 
 .on{
-  color: #FF6666 ; 
-  border-bottom: 5rpx solid #FF6666 ;
+  color: #006666 ; 
+  border-bottom: 5rpx solid #006666 ;
 }
 .swiper-box{ 
   display: block;
@@ -94,7 +94,7 @@
   float: left;
   font: boild 15px;
   font-family: MicroSoft Yahei;
-  color: #333333 ;
+  color: #006666 ;
 }
 
 .rank-user-ava-container{
@@ -114,7 +114,7 @@
 .rank-int-font{
   font: boild 10px;
   font-family: MicroSoft Yahei;
-  color: #333333 ;
+  color: #006666 ;
 }
 
 .rank-num{
@@ -152,7 +152,7 @@
 .post-title{
 font-size:25px;
 font-weight: 600;
-color:#CC3333 ;
+color:#006666 ;
 margin-left: 10px;
 }
 
@@ -190,7 +190,7 @@ margin-left: 10px;
   margin-right: 10px;
   margin-top: 5px;
   font-size: 10px;
-  color: #AAAAAA  ;
+  color: #006666  ;
 }
 
 .post-container{

@@ -236,15 +236,27 @@ Page({
                 that.setData({
                   pinglun: res.data,
                 })
-                console.log(res.data);
-                wx.stopPullDownRefresh();
-                wx.hideNavigationBarLoading();
-                wx.showToast({
-                  title: '刷新成功',
-                  icon: 'success',
-                  duration: 1000
 
+                wx.request({
+                  url: 'https://m.hola-chino.cn/Martin/tp5/public/index.php/index/wx/get_gaoguan_rank',
+                  data: {
+                  },
+                  success: function (res) {
+                    that.setData({
+                      gaoguan: res.data,
+                    })
+                    console.log(res.data);
+                    wx.stopPullDownRefresh();
+                    wx.hideNavigationBarLoading();
+                    wx.showToast({
+                      title: '刷新成功',
+                      icon: 'success',
+                      duration: 1000
+
+                    })
+                  }
                 })
+
               }
             })
           }

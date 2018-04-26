@@ -67,7 +67,6 @@ onLoad:function(){
                                         encryptedData: encryptedData,
                                         iv: iv,
                                         session_key: session_key,
-                                        groupname: wx.getStorageSync('groupname'),
                                       },
                                       method: 'GET',
                                       success: function (res) {    //解密成功回调函数

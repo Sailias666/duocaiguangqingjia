@@ -57,7 +57,7 @@ padding-bottom: 5px;
   margin-right: 10px;
   margin-top: 5px;
   font-size: 10px;
-  color: #AAAAAA  ;
+  color: #006666  ;
 }
 
 .post-author-date{
@@ -89,7 +89,7 @@ margin-bottom: 10px;
 .post-title{
 font-size:25px;
 font-weight: 600;
-color:#CC3333 ;
+color:#006666 ;
 margin-left: 10px;
 }
 .post-content{

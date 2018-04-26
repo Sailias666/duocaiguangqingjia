@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   height: 180px;
-  background-color: #003366;
+  background-color: #006666;
 }
 
 .avatar-container{

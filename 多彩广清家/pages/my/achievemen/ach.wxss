@@ -9,7 +9,7 @@
   display: inline-block; 
   width: 25%; 
   height: 60px;
-  color: #777777; 
+  color: #006666; 
 }
 
 .swiper-title-1-container{
@@ -30,7 +30,7 @@
 }
 
 .on{
-  color: #996699; 
+  color: #006666; 
   border-bottom: 5rpx solid #996699;
 }
 .swiper-box{ 
@@ -98,7 +98,7 @@
   float: left;
   font: boild 15px;
   font-family: MicroSoft Yahei;
-  color: #660066;
+  color: #006666;
 }
 
 .rank-user-ava-container{
@@ -119,12 +119,12 @@
 .rank-int-font{
   font: boild 10px;
   font-family: MicroSoft Yahei;
-  color: #330033 ;
+  color: #006666 ;
 }
 .rank-font{
   font: boild 10px;
   font-family: MicroSoft Yahei;
-  color: #330033 ;
+  color: #006666 ;
   margin-top: 15px;
 }
 

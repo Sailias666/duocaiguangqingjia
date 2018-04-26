@@ -1,7 +1,7 @@
 <view class='bg'>
 
-    <navigator url='../../detail/card/card/gaoguan/gaoguan?id=888888' hover-class="navigator-hover">
-  <view  class='grid-item'  >  
+  <navigator url='../../detail/card/card/gaoguan/gaoguan?id=888888' hover-class="navigator-hover">
+    <view  class='grid-item'  >  
       <view class='title-container'>
             <text class="post-title">高管-周末专区</text>
       </view>
@@ -12,10 +12,10 @@
             <text class="post-content">高管-周末专区</text>
       </view>      
       <view class='deadline-container'>      
-            <text class='deadline'>截至日期: - </text>
+            <text class='deadline'>活动日期：每两周末</text>
       </view> 
     </view> 
-    </navigator>
+  </navigator>
 
   <view class="post-container" wx:for="{{activity}}" wx:key='{{index}}'>
      <navigator url='../../detail/card/card/card_detail/card_detail?id={{index+1}}' hover-class="navigator-hover">

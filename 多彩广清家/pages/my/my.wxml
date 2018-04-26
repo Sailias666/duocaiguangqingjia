@@ -22,7 +22,7 @@
     </view>
 
     <view class='user-item'>
-      <view class='user-item-content' catchtap='goto_achi'>
+      <view class='user-item-content' catchtap='qidai'>
         <image class='user-item-icon' src='/images/shouji.png'></image>
         <text class='user-item-font'>积分兑换</text>
         <view class='user-item-enter'>
@@ -32,7 +32,7 @@
       </view>
     </view>
     <view class='user-item'>
-      <view class='user-item-content'  catchtap='goto_medal'>
+      <view class='user-item-content'  catchtap='qidai'>
       <image class='user-item-icon' src='/images/huizhang.png'></image>
       <text class='user-item-font'>成就勋章</text>
       <view class='user-item-enter'>

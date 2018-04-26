@@ -12,7 +12,7 @@
           </navigator>
         </block>  
   </swiper>  
-
+<navigator  url='../../detail/rank/rank'>
   <view class='run-container'>
     <view class='run-img-container'>
       <image class='run-img' src='/images/cle1.png'></image>
@@ -26,7 +26,7 @@
       </view>
     </view>
   </view>
-
+</navigator>
   <view class="grid-wrp">
     <view class="grid-row">
         <view class="grid-item" bindtap='goto_daka'>

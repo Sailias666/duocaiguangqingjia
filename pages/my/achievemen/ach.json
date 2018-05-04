@@ -1,0 +1,6 @@
+{
+    "navigationBarBackgroundColor": "#006666",
+    "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "积分榜",
+  "enablePullDownRefresh": true
+}

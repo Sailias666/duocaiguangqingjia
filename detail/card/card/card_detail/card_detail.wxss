@@ -1,0 +1,293 @@
+.page-container{
+  flex-direction: column;
+  display: flex;
+}
+
+.swiper-tab{
+  width: 100%; 
+  text-align: center; 
+  line-height: 50px;
+}
+.swiper-tab-list{
+  align-items: center;
+  display: inline-block; 
+  width: 40%; 
+  height: 50px;
+  color: #006666; 
+}
+.comment-item-content-pic{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+.swiper-title-1-container{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+}
+
+.swiper-title-1-font{
+  height: 50px;
+  font-size: 20px;
+}
+
+.swiper-title-2-font{
+  font-size: 10px;
+}
+.on{
+  color: #006666; 
+  border-bottom: 5rpx solid #006666;
+}
+.swiper-box{ 
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+ }
+
+.rank-container{
+  flex-direction: column;
+  display: flex;
+}
+
+.rank-item-container{
+  flex-direction: column;
+  display: flex;
+  height: 70px;
+  width: 100%;
+}
+
+.rank-item{
+  flex-direction: row;
+  display: flex;
+  height: 60px;
+  width:100%;
+}
+
+.swiper-box view{ 
+
+}
+
+.title-content{
+  width: 95%;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  word-wrap:break-word;
+  word-break:break-all;
+}
+
+
+.deadline-container{
+height: 30px;
+}
+
+.weui-btn{
+  background: #006666!important;
+  colo:r#006666!important;
+  width: 40%;
+}
+
+.content-container{
+  margin-top: 10px;
+  width: 100%;
+}
+
+.button-container{
+  margin-top: 20px;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+}
+
+.button{
+width: 40%;
+}
+
+.button-text{
+  color: #fff;
+}
+.title-font{
+  margin-top: 30px;
+  
+  font-size: 25px;
+  color: #333333 ;
+}
+
+.deadline-content{
+  margin-left: 10px;
+}
+
+.border-container{
+  width:100%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.border{
+  width: 96%;
+  border-top: 1px solid #999;
+}
+
+.border2{
+  margin-top: 15px;
+  width: 100%;
+  border-top: 5px solid #EEEEEE;
+}
+
+.deadline-text{
+  color: #999;
+  font-size: 10px;
+}
+
+.content-font{
+  font-size: 12px;
+  color: #666666 ;
+}
+
+.content-content{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.comment-title{
+  height: 40px;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.comment-title-font{
+  margin-top: 10px;
+  margin-left: 10px;
+  font-family:Microsoft Yahei;
+  font:bold;
+  color:#006666;
+}
+
+.comment-item{
+  flex-direction:row;
+  display:flex;
+border-bottom: 1px solid #EEEEEE;
+}
+
+.comment-item-title{
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 5px;
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.comment-item-content{
+  margin-bottom: 20px;
+  width: 600rpx;
+}
+
+.avatar{
+  height: 80rpx;
+  width: 80rpx;
+  border-radius:100px;
+}
+
+.comment-item-content-title{
+  height: 80rpx;
+  width: 600rpx;
+}
+
+.comment-item-content-name{
+  height: 40rpx;
+  width: 600rpx;
+}
+
+.comment-item-content-date{
+  height: 40rpx;
+  width: 600rpx;
+}
+
+.comment-item-content-name-font{
+  font-size: 15px;
+  font: bold 5px;
+  color: #336699;
+}
+
+.gaoguancomment-item-content-title{
+  height: 80rpx;
+  width: 600rpx;
+}
+
+.gaoguancomment-item-content-name{
+  height: 40rpx;
+  width: 600rpx;
+}
+
+.gaoguancomment-item-content-date{
+  height: 40rpx;
+  width: 600rpx;
+}
+
+.gaoguancomment-item-content-name-font{
+  font-size: 15px;
+  font: bold 5px;
+  color: #336699;
+}
+
+.comment-item-content-name-time{
+  font-size: 10px;
+  font-weight: 30px;
+  color: #666666 ;
+}
+
+.comment-item-content-content-font{
+  font-size: 15px;
+  font-weight: 30px;
+  color: #222222 ;
+}
+
+.comment-item-content-pinglun-button{
+  height: 40rpx;
+  width: 600rpx;
+  margin-bottom: 5px;
+
+}
+
+.comment-item-content-pinglun{
+  width: 600rpx;
+  background-color: #EEEEEE;
+  margin: 3px;
+}
+
+.pinglun-border{
+    border: 1px solid #DDDDDD;
+}
+
+.pinglun-item{
+  padding-top: 2px;
+  width: 600rpx;
+}
+
+.item-container{
+  width: 600rpx;
+  background-color: #DDDDDD;
+}
+.pinglun-name{
+  margin-left: 5px;
+  font-size: 13px;
+  font: bold 5px;
+  color: #336699;
+}
+
+.pinglun-content{
+  font-size: 13px;
+  font: bold 5px;
+  word-wrap:break-word;
+  word-break:break-all;
+  color: #444444;
+}
+
+.pinglun-icon{
+  height: 30rpx;
+  width: 40rpx;
+  float: right;
+
+}

@@ -1,0 +1,70 @@
+<view class='bg'>
+
+  <navigator hidden='{{gaoguan}}' url='/detail/card/card/gaoguan/gaoguan?id=888881' hover-class="navigator-hover">
+    <view  class='grid-item'  >  
+      <view class='title-container'>
+            <text class="post-title">每日健身任务</text>
+      </view>
+       <view class='image-container'>
+            <image class="post-image" src="https://chengjiushuangxiang.com/Martin/tp5/public/upload/gaoguan/1.jpg"></image>
+      </view> 
+      <view class='content-container'>
+        <text class="post-content"></text>
+      </view>  
+      <view class='deadline-container'>      
+        <text class='deadline'></text>
+      </view> 
+    </view> 
+  </navigator>
+  <navigator hidden='{{gaoguan}}' url='/detail/card/card/gaoguan/gaoguan?id=888882' hover-class="navigator-hover">
+    <view  class='grid-item'  >  
+      <view class='title-container'>
+            <text class="post-title">特训健身课程</text>
+      </view>
+       <view class='image-container'>
+            <image class="post-image" src="https://chengjiushuangxiang.com/Martin/tp5/public/upload/gaoguan/2.jpg"></image>
+      </view> 
+      <view class='content-container'>
+        <text class="post-content"></text>
+      </view>  
+      <view class='deadline-container'>      
+        <text class='deadline'></text>
+      </view> 
+    </view> 
+  </navigator>
+
+    <navigator hidden='{{gaoguan}}' url='/detail/card/card/gaoguan/gaoguan?id=888883' hover-class="navigator-hover">
+    <view  class='grid-item'  >  
+      <view class='title-container'>
+            <text class="post-title">活力周末</text>
+      </view>
+       <view class='image-container'>
+            <image class="post-image" src="https://chengjiushuangxiang.com/Martin/tp5/public/upload/gaoguan/3.jpg"></image>
+      </view> 
+      <view class='content-container'>
+        <text class="post-content"></text>
+      </view>  
+      <view class='deadline-container'>      
+        <text class='deadline'></text>
+      </view> 
+    </view> 
+  </navigator>
+
+    <navigator hidden='{{gaoguan}}' url='/detail/card/card/gaoguan/gaoguan?id=888884' hover-class="navigator-hover">
+    <view  class='grid-item'  >  
+      <view class='title-container'>
+            <text class="post-title">超级星期三+</text>
+      </view>
+       <view class='image-container'>
+            <image class="post-image" src="https://chengjiushuangxiang.com/Martin/tp5/public/upload/gaoguan/4.jpg"></image>
+      </view> 
+      <view class='content-container'>
+        <text class="post-content"></text>
+      </view>  
+      <view class='deadline-container'>      
+        <text class='deadline'></text>
+      </view> 
+    </view> 
+  </navigator>
+  
+</view>

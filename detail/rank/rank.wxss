@@ -1,0 +1,164 @@
+.swiper-tab{
+  width: 100%; 
+  text-align: center; 
+  line-height: 60px;
+}
+.swiper-tab-list{
+  align-items: center;
+  display: inline-block; 
+  width: 25%; 
+  height: 60px;
+  color: #006666; 
+}
+
+.swiper-title-1-container{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+}
+
+.swiper-title-1-font{
+  height: 15px;
+  font-size: 10px;
+}
+
+.swiper-title-2-font{
+  font-size: 10px;
+}
+
+.on{
+  color: #006666; 
+  border-bottom: 5rpx solid #006666;
+}
+.swiper-box{ 
+  display: block;
+  width: 100%;
+  overflow: hidden;
+ }
+.swiper-box view{ 
+  text-align: center; 
+}
+
+.bottom-title-font{
+  color: #eee;
+}
+
+.bottom-title{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.rank-container{
+  flex-direction: column;
+  display: flex;
+}
+
+.rank-item-container{
+  flex-direction: column;
+  display: flex;
+  height: 70px;
+  width: 100%;
+}
+
+.rank-item{
+  flex-direction: row;
+  display: flex;
+  height: 60px;
+  width:100%;
+}
+
+
+.rank-pic-container{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: 10%;
+}
+
+.rank-name{
+
+  margin-top: 15px;
+  height: 60px;
+  width: 45%;
+}
+
+.rank-int{
+  margin-top: 16px;
+  height: 60px;
+  width: 15%;
+}
+
+.rank-pic{
+  margin-top: 10px;
+  height: 30px;
+  width: 50rpx;
+}
+.rank-name-container{
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  width: 80%;
+}
+
+.rank-name-font{
+  float: left;
+  font: boild 15px;
+  font-family: MicroSoft Yahei;
+  color: #006666;
+}
+
+.rank-user-ava-container{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  height: 60px;
+  width: 20%;
+
+}
+
+.rank-user-ava-container2{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  height: 60px;
+  width: 20%;
+
+}
+
+.rank-user-ava{
+  height: 50px;
+  width: 50px;
+    border-radius:100%;
+}
+
+.rank-int-font{
+  font: boild 10px;
+  font-family: MicroSoft Yahei;
+  color: #006666 ;
+}
+.rank-font{
+  font: boild 10px;
+  font-family: MicroSoft Yahei;
+  color: #006666 ;
+  margin-top: 15px;
+}
+
+.rank-num{
+  height: 60px;
+  width: 10%;
+}
+
+.rank-num-pic{
+  height: 55px;
+  width: 40px;
+}
+
+
+
+

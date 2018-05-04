@@ -1,0 +1,63 @@
+<view>
+
+  <view class='header-container' open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+    <view class='avatar-container'>
+      <image class="avatar" src="{{avatarUrl}}"></image>
+    </view>
+    <view>
+      <text class='username-font'>{{user_name}}</text>
+    </view>
+  </view>
+
+  <view class='user-item-container'>
+    <view class='user-item'>
+      <view class='user-item-content' >
+        <image class='user-item-icon' src='/images/zubie.png'></image>
+        <text class='user-item-font'>组别信息</text>
+        <view class='user-item-enter'>
+          <image class='user-item-arrow' src='/images/arrowasdf.png'></image>
+          <text class='user-item-int'>{{groupname}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='user-item'>
+      <view class='user-item-content' catchtap='goto_ach'>
+        <image class='user-item-icon' src='/images/jifen2.png'></image>
+        <text class='user-item-font'>积分榜单</text>
+        <view class='user-item-enter'>
+          <image class='user-item-arrow' src='/images/arrow.png'></image>
+        </view>
+      </view>
+    </view>  
+    <view class='user-item'>
+      <view class='user-item-content' catchtap='qidai'>
+        <image class='user-item-icon' src='/images/shouji.png'></image>
+        <text class='user-item-font'>积分兑换</text>
+        <view class='user-item-enter'>
+          <image class='user-item-arrow' src='/images/arrow.png'></image>
+          <text class='user-item-int'>{{integration}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='user-item'>
+      <view class='user-item-content'  catchtap='qidai'>
+      <image class='user-item-icon' src='/images/huizhang.png'></image>
+      <text class='user-item-font'>成就勋章</text>
+      <view class='user-item-enter'>
+        <image class='user-item-arrow' src='/images/arrow.png'></image>
+      </view>
+    </view>
+    </view>   
+  
+
+    <view class='user-item'>
+      <view class='user-item-content' >
+        <image class='user-item-icon' src='/images/version.png'></image>
+        <text class='user-item-font'>版本  v0503.15</text>
+      </view>
+    </view> 
+  </view>
+</view>
+
+
+

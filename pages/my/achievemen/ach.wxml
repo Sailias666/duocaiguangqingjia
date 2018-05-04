@@ -1,0 +1,24 @@
+
+    <view class='rank-container'>
+      <view style='border-top:1px solid #006666;width:90%;margin-top:20px;margin-left:20px;'></view>
+      <view class='rank-item-container' wx:for="{{data}}" wx:key='{{index}}'>
+        <view class='rank-item'>
+          <view class='rank-pic-container'>
+            <image src='/images/medal{{index}}.png' class='rank-pic'></image>
+          </view>
+          <view class='rank-user-ava-container'>
+            <image class='rank-user-ava' src='{{item.touxiang}}'></image>
+          </view>
+          <view class='rank-name'>
+            <view class='rank-name-container'>
+              <text class='rank-name-font'>{{item['name']}}</text>
+            </view>
+          </view>
+          <view class='rank-font'>
+            <text class='rank-font'>{{item['user_integral']}}</text>
+          </view>
+        </view>
+        <view style='border-top:1px solid #006666;width:90%;margin-left:20px;'></view>
+      </view>
+    </view>
+

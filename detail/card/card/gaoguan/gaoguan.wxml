@@ -1,0 +1,137 @@
+<view class='page-container'>
+  <view class='title-container'>
+    <view class='title-content'>
+      <text class='title-font'>{{activity[0].activity_name}}</text>
+    </view>
+  </view>
+
+  <view class='deadline-container'>
+    <view class='deadline-content'>
+      <text class='deadline-text'> 有效期：{{activity[0].activity_date}}</text>
+    </view>
+  </view>
+
+  <view class='border-container'>
+    <view class='border'></view>
+  </view>
+
+
+  <view class='content-container'>
+    <view class='content-content'>
+      <text class='content-font'>{{activity[0].activity_desc}}</text>
+    </view>
+  </view>
+
+  <view class='button-container'>
+      <button  type='primary' class='weui-btn' bindtap='baoming'>我要打卡</button>
+  </view>
+
+  <view class='border-container'><view class='border2'></view></view>
+
+
+
+
+
+  <view>
+    <view class="swiper-tab">
+
+      <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">
+        <view class="swiper-title-1-container">
+          <view class='swiper-title-1-container' data-current="0" bindtap="swichNav">
+            <text class='swiper-title-1-font'  data-current="0" bindtap="swichNav">打卡日记</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">
+        <view class="swiper-title-1-container" bindtap='personal_month_step'>
+          <view class='swiper-title-1-container' data-current="1" bindtap="swichNav">
+            <text class='swiper-title-1-font'  data-current="1" bindtap="swichNav">高管排行榜</text>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+    <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:2400px" bindchange="bindChange">
+      <swiper-item>
+      <view class='comment-item' wx:for="{{data}}" wx:key="index">
+
+          <view class='comment-item-title'>
+            <view class='avatar-container'>
+              <image class="avatar" src="{{data[index]['comment_touxiang']}}"></image>
+            </view>
+          </view>
+
+          <view class='comment-item-content'>
+            <view class='gaoguancomment-item-content-title'>
+              <view class='gaoguancomment-item-content-name'>
+                <text class='comment-item-content-name-font'>{{data[index]['comment_name']}}</text>
+              </view>
+              <view class='gaoguancomment-item-content-date'>
+                  <text class='comment-item-content-name-time'>{{data[index]['comment_time']}}</text>
+              </view>
+            </view>
+            <view class='gaoguancomment-item-content-content'>
+              <text class='comment-item-content-content-font'>{{data[index]['comment_content']}}</text>
+            </view>
+            <view catchtap='viewpic' class='comment-item-content-pic' style='width:200rpx;height:200rpx;margin-top:10px;margin-bottom:10px;'>
+              <image mode="aspectFill"  data-src="https://chengjiushuangxiang.com/Martin/tp5/public/upload/{{data[index]['comment_pic']}}" style='width:200rpx;height:200rpx;' src="https://chengjiushuangxiang.com/Martin/tp5/public/upload/{{data[index]['comment_pic']}}"></image>
+            </view>
+            <view class='comment-item-content-pinglun-button'>
+              <image class="pinglun-icon" src='../../../../images/pinglun.png' data-comment_id="{{data[index]['comment_id']}}" catchtap='pinglun'></image>
+            </view>
+            <view class='item-container'>
+              <view class='comment-item-content-pinglun' >
+              <view class='pinglun-item' wx:if="{{pinglun[pindex]['pinglun_comment_id'] == data[index]['comment_id']}}"  wx:for="{{pinglun}}" wx:for-index='pindex'>
+                  <text class='pinglun-name'>{{pinglun[pindex]['pinglun_name']}} : </text>
+                  <text class='pinglun-content'>{{pinglun[pindex]['pinglun_content']}}</text>
+              </view>
+            </view>
+            </view>
+
+          </view>
+
+        </view>
+      </swiper-item>
+
+      <swiper-item>
+        <view class='rank-container'>
+          <view style='border-top:1px solid #006666;width:90%;margin-top:20px;margin-left:20px;'></view>
+          <view class='rank-item-container' wx:for="{{gaoguan}}" wx:key='{{index}}'>
+            <view class='rank-item'>
+              <view class='rank-pic-container' >
+                <image mode="aspectFill" src='/images/medal{{index}}.png' class='rank-pic'></image>
+              </view>
+              <view class='rank-user-ava-container'>
+                <image class='rank-user-ava' src='{{item.touxiang}}'></image>
+              </view>
+              <view class='rank-name'>
+                <view class='rank-name-container'>
+                  <text class='rank-name-font'>{{item['name']}}</text>
+                </view>
+              </view>
+              <view class='rank-font'>
+                <text class='rank-font'>{{item['point']}}</text>
+              </view>
+            </view>
+            <view style='border-top:1px solid #006666;width:90%;margin-left:20px;'></view>
+          </view>
+        </view>
+      </swiper-item>
+
+    </swiper>
+
+  </view>
+
+
+
+
+
+  <modal hidden="{{hiddenmodalput}}" showCancel="false" title="评论" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm" >  
+    <view class="section">
+      <input type='text'placeholder="请输入内容" bindinput='input'/> 
+    </view>
+  </modal> 
+
+</view>

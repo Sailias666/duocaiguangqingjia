@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/my",
+    "pages/my/medal/medal",
+    "pages/my/achievement/achi",
+    "pages/my/achievemen/ach",
+    "detail/card/card",
+    "detail/challenge/challenge",
+    "detail/rank/rank",
+    "detail/game/game",
+    "detail/card/card/activityone/activity",
+    "detail/challenge/challenge_detail/challenge_detail",
+    "detail/card/card/card_detail/card_detail",
+    "detail/card/card/gaoguan/gaoguan",
+    "detail/card/card/gaoguan_home/gapguan_home"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "功能菜单",
+        "iconPath": "images/favorite.png",
+        "selectedIconPath": "images/favorite1.png",
+        "selectedColor": "#006666"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/account.png",
+        "selectedIconPath": "images/account1.png"
+      }
+    ]
+  }
+}

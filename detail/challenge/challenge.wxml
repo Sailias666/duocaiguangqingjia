@@ -1,0 +1,38 @@
+  <view>
+    <view class="swiper-tab">
+
+      <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">
+        <view class="swiper-title-1-container">
+          <view class='swiper-title-1-container' data-current="0" bindtap="swichNav">
+            <text class='swiper-title-1-font'  data-current="0" bindtap="swichNav">我要挑战</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">
+        <view class="swiper-title-1-container" bindtap='personal_month_step'>
+          <view class='swiper-title-1-container' data-current="1" bindtap="swichNav">
+            <text class='swiper-title-1-font'  data-current="1" bindtap="swichNav">英雄榜</text>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+    <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:2400px" bindchange="bindChange">
+      <swiper-item>
+        <view class='juzhong'><text class='zanbu'>敬请期待第一期挑战上线</text></view>
+      </swiper-item>
+
+
+      <swiper-item>
+        <view class='juzhong'><text class='zanbu'>敬请期待第一期挑战上线</text></view>
+      </swiper-item>
+
+    </swiper>
+
+  </view>
+
+
+
+

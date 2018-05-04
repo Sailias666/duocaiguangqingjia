@@ -1,0 +1,6 @@
+{
+    "navigationBarBackgroundColor": "#006666",
+    "navigationBarTextStyle": "white",
+      "navigationBarTitleText": "我要打卡",
+      "enablePullDownRefresh": true
+}

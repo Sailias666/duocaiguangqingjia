@@ -10,22 +10,19 @@ Page({
     data_month_personal:'',
     group_step_rank:'',
     group_step_rank_month:'',
-
+    avatarUrl:'',
     winWidth: 0,
     winHeight: 0,
     // tab切换 
     currentTab: 0,
+    yundong_jifen:0,
+    yundong_paiming:0,
   },
 
  onLoad:function(){
    var that = this;
    // 获取系统信息 
    wx.getSystemInfo({
-
-
-
-
-     
      success: function (res) {
        that.setData({
          winWidth: res.windowWidth,
@@ -38,6 +35,16 @@ Page({
      success: function (res) {
        that.setData({
          user_name: res.data,
+       })
+     },
+   })
+
+   wx.getStorage({
+     key: 'avatarUrl',
+     success: function (res) {
+       console.log(res.data);
+       that.setData({
+         avatarUrl: res.data,
        })
      },
    })
@@ -94,6 +101,15 @@ Page({
 
 
   onPullDownRefresh: function () {
+    wx.getStorage({
+      key: 'avatarUrl',
+      success: function (res) {
+        console.log(res.data);
+        that.setData({
+          avatarUrl: res.data,
+        })
+      },
+    })
       console.log('下拉刷新');
       wx.showNavigationBarLoading()
       var that = this;

@@ -66,6 +66,10 @@
             <image mode="aspectFill" data-src="https://chengjiushuangxiang.com/Martin/tp5/public/upload/{{data[index]['comment_pic']}}" style='width:200rpx;height:200rpx;' src="https://chengjiushuangxiang.com/Martin/tp5/public/upload/{{data[index]['comment_pic']}}"></image>
           </view>
 
+        <view wx:if="{{openid==data[index]['comment_openid'] ? true:false}}">
+          <text style='color:red;font-size:15px;'>删除</text>
+        </view>
+
           <view class='comment-item-content-pinglun-button'>
             <image class="pinglun-icon" src='../../../../images/pinglun.png' data-comment_id="{{data[index]['comment_id']}}" catchtap='pinglun'></image>
           </view>

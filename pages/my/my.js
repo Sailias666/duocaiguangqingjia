@@ -30,8 +30,12 @@ Page({
             console.log(res);
             that.setData({
               integration: res.data.user_integral,
-              groupname: res.data.group_name
-            })
+              groupname: res.data.group_name,
+              user_name:res.data.name,
+              avatarUrl:res.data.touxiang,
+            }),
+              wx.setStorageSync('avatarUrl', res.data.touxiang);
+              wx.setStorageSync('nickName', res.data.name);
           }
         })
       }
@@ -40,15 +44,7 @@ Page({
       common.show('错误');
     }
     var that = this;
-    wx.getStorage({
-      key: 'avatarUrl',
-      success: function (res) {
-        console.log('url', res);
-        that.setData({
-          avatarUrl: res.data,
-        })
-      },
-    })
+    
     wx.getStorage({
       key: 'nickName',
       success: function (res) {
@@ -71,23 +67,6 @@ Page({
    */
   onShow: function () {
     var that = this;
-    wx.getStorage({
-      key: 'avatarUrl',
-      success: function (res) {
-        console.log('url', res);
-        that.setData({
-          avatarUrl: res.data,
-        })
-      },
-    })
-    wx.getStorage({
-      key: 'nickName',
-      success: function (res) {
-        that.setData({
-          user_name: res.data,
-        })
-      },
-    })
     try {
       var value = wx.getStorageSync('openid')    //取出缓存的openid
       if (value) {
@@ -102,8 +81,12 @@ Page({
             console.log(res);
             that.setData({
               integration: res.data.user_integral,
-              groupname: res.data.group_name
-            })
+              groupname: res.data.group_name,
+              user_name: res.data.name,
+              avatarUrl: res.data.touxiang,
+            }),
+              wx.setStorageSync('avatarUrl', res.data.touxiang);
+            wx.setStorageSync('nickName', res.data.name);
           }
         })
       }

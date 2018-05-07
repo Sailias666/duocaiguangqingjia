@@ -1,4 +1,19 @@
 
+<view class='info'>
+  <view class='avatar-container'>
+    <image class="avatar" src="{{avatarUrl}}"></image>
+  </view>
+
+  <view class='info-content'>
+    <view class='info-jifen'>
+      <text style='color:#fff;'>运动积分：{{yundong_jifen}}</text>
+    </view>
+    <view class='info-jifen'>
+      <text style='color:#fff;'>积分排名：{{yundong_paiming}}</text>
+    </view>
+  </view>
+</view>
+
 
 <view class="swiper-tab">
 

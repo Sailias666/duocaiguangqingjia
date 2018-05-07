@@ -61,12 +61,13 @@
   margin-top: 8px;
   font-size: 15px;
   margin-left: 15px;
+  width: 30%;
   font-family: MicroSoft Yahei; 
   color: #444444 ;
 }
 .user-item-enter{
   height: 40px;
-  width:70%;
+  width:55%;
 }
 .user-item-arrow{
   float: right;

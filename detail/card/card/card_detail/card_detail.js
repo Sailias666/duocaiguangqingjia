@@ -7,6 +7,7 @@ Page({
   data: {
     id:'',
     data: '',
+    openid:'',
   },
 
   /**
@@ -25,6 +26,16 @@ Page({
       }
     });
 
+    wx.getStorage({
+      key: 'openid',
+      success: function(res) {
+        console.log('openid',res.data.data.openid);
+        that.setData({
+          openid: res.data.data.openid
+        })
+      },
+    })
+
     this.setData({
       id: options['id'],
       hiddenmodalput:true,
@@ -39,7 +50,7 @@ Page({
         activity_num: options['id'],
       },
       success: function (res) {
-        console.log(res);
+        console.log('activity: ',res);
         that.setData({
           activity: res.data
         })

@@ -31,7 +31,7 @@
 <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
 
   <swiper-item>
-  <view class="post-container">
+  <!-- <view class="post-container">
     <view wx:for="{{blm}}"  wx:key='{{index}}' class='grid-item' bindtap='tzone'>  
         <view class='title-container'>
               <view style='margin-top:10px;'><text class="post-title">{{item.team_name_a}}</text></view>
@@ -46,12 +46,12 @@
               <text class='deadline'>{{item.activity_name}}</text>
         </view> 
       </view> 
-    </view>
+    </view> -->
         <view class='juzhong'><text class='zanbu'>即将开赛</text></view>
   </swiper-item>
 
   <swiper-item>
-    <view class="post-container">
+    <!-- <view class="post-container">
     <view wx:for="{{flm}}"  wx:key='{{index}}' class='grid-item' bindtap='tzone'>  
         <view class='title-container'>
             <view style='margin-top:10px;'><text class="post-title">{{item.team_name_a}}</text></view>
@@ -66,13 +66,13 @@
               <text class='deadline'>{{item.activity_name}}</text>
         </view> 
       </view> 
-    </view>
+    </view> -->
 
         <view class='juzhong'><text class='zanbu'>即将开赛</text></view>
   </swiper-item>
 
   <swiper-item>
-  <view class="post-container">
+  <!-- <view class="post-container">
     <view wx:for="{{bad}}"  wx:key='{{index}}' class='grid-item' bindtap='tzone'>  
         <view class='title-container'>
            <view style='margin-top:10px;'><text class="post-title">{{item.team_name_a}}</text></view>
@@ -88,7 +88,7 @@
         </view> 
       </view> 
         
-    </view>
+    </view> -->
 <view class='juzhong'><text class='zanbu'>即将开赛</text></view>
           
   </swiper-item>

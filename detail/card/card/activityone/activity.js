@@ -113,16 +113,16 @@ cleanpic: function () {
                       console.log("已经执行成功回调函数");
                       var jifen=5;
                       if (wx.getStorageSync('gaoguan') =='1'){
-                        if (wx.getStorageSync('activity_num') == 888888) {
+                        if (wx.getStorageSync('activity_num') == 888881) {
+                          jifen = 5;
+                        }
+                        if (wx.getStorageSync('activity_num') == 888882) {
+                          jifen = 10;
+                        }
+                        if (wx.getStorageSync('activity_num') == 888883) {
                           jifen = 15;
                         }
-                        if (wx.getStorageSync('activity_num') == 2) {
-                          jifen = 10;
-                        }
-                        if (wx.getStorageSync('activity_num') == 5) {
-                          jifen = 10;
-                        }
-                        if (wx.getStorageSync('activity_num') == 6) {
+                        if (wx.getStorageSync('activity_num') == 888884) {
                           jifen = 10;
                         }
                       }

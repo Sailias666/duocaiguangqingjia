@@ -23,6 +23,16 @@
     <view class='user-item'>
       <view class='user-item-content' catchtap='goto_ach'>
         <image class='user-item-icon' src='/images/jifen2.png'></image>
+        <text class='user-item-font'>修改个人信息</text>
+        <view class='user-item-enter'>
+          <image class='user-item-arrow' src='/images/arrow.png'></image>
+        </view>
+      </view>
+    </view>  
+
+    <view class='user-item'>
+      <view class='user-item-content' catchtap='goto_ach'>
+        <image class='user-item-icon' src='/images/jifen2.png'></image>
         <text class='user-item-font'>积分榜单</text>
         <view class='user-item-enter'>
           <image class='user-item-arrow' src='/images/arrow.png'></image>
@@ -53,7 +63,7 @@
     <view class='user-item'>
       <view class='user-item-content' >
         <image class='user-item-icon' src='/images/version.png'></image>
-        <text class='user-item-font'>版本  v0503.15</text>
+        <text class='user-item-font'>版本  v0503.17</text>
       </view>
     </view> 
   </view>

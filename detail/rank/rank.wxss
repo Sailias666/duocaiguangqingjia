@@ -1,3 +1,39 @@
+.info{
+  height: 100px;
+  width: 100%;
+  background-color: #009999;
+  flex-direction: row;
+  display: flex;
+}
+
+.avatar-container{
+  height: 80px;
+  width: 80px;
+  margin-left: 20px;
+}
+
+.avatar{
+    margin-top: 10px;
+    width:80px;
+    height:80px;
+    border-radius:100px;
+}
+
+.info-content{
+  margin-left: 20px;
+  margin-top: 10px;
+  height: 80px;
+  width: 100%;
+}
+
+.info-jifen{
+  margin-top: 5px;
+  flex-direction: column;
+  display: flex;
+  height: 40px;
+}
+
+
 .swiper-tab{
   width: 100%; 
   text-align: center; 

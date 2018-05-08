@@ -1,3 +1,29 @@
+var app = getApp();
+var common = require('../../utils/util.js');
+
+const groupinfo = ['区域高管',
+  '区域办公室',
+  '运营管理部',
+  '工程技术部',
+  '成本管理部',
+  '设计管理部',
+  '人力资源部',
+  '品牌文化部',
+  '营销管理部',
+  '投资拓展部',
+  '客户关系管理部',
+  '财务资金部',
+  '采购部 ',
+  '多元战略办公室',
+  '广州中城市公司',
+  '广州东城市公司',
+  '广州南城市公司',
+  '韶关城市公司',
+  '清远城市公司',
+  '赣州城市公司',
+  '新余城市公司',
+  '其他'];
+
 Page({
 
   /**
@@ -5,8 +31,8 @@ Page({
    */
 
   data: {
-    integration:'0',
-
+    integration: '0',
+    hiddenmodalput:true,
 
   },
 
@@ -31,11 +57,11 @@ Page({
             that.setData({
               integration: res.data.user_integral,
               groupname: res.data.group_name,
-              user_name:res.data.name,
-              avatarUrl:res.data.touxiang,
+              user_name: res.data.name,
+              avatarUrl: res.data.touxiang,
             }),
               wx.setStorageSync('avatarUrl', res.data.touxiang);
-              wx.setStorageSync('nickName', res.data.name);
+            wx.setStorageSync('nickName', res.data.name);
           }
         })
       }
@@ -44,7 +70,7 @@ Page({
       common.show('错误');
     }
     var that = this;
-    
+
     wx.getStorage({
       key: 'nickName',
       success: function (res) {
@@ -67,6 +93,9 @@ Page({
    */
   onShow: function () {
     var that = this;
+    that.setData({
+      groupinfo: groupinfo,
+    })
     try {
       var value = wx.getStorageSync('openid')    //取出缓存的openid
       if (value) {
@@ -161,6 +190,73 @@ Page({
       duration: 1000
     })
   },
+
+  editinfo:function(){
+    var that = this;
+    that.setData({
+      hiddenmodalput:false,
+      groupinfo: groupinfo,
+    })
+  },
+  bindPickerChange: function (e) {
+    console.log("点击分组");
+    var that = this;
+    var group = groupinfo;
+    that.setData({
+      index: e.detail.value,
+    })
+    wx.setStorage({
+      key: 'updategroupname',
+      data: group[e.detail.value],
+    })
+    console.log(group[e.detail.value]);
+  },
+  bindinput:function(e){
+    wx.setStorage({
+      key: 'updatename',
+      data: e.detail.value,
+    })
+  },
+  confirm: function () {
+    var that = this;
+    var openid = wx.getStorageSync('openid').data['openid'];
+    var groupname = wx.getStorageSync('updategroupname');
+    var updatename = wx.getStorageSync('updatename');
+    console.log(openid);
+    console.log(groupname);
+    console.log(updatename);
+    
+    wx.request({
+      url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/editinfo',
+      data: {
+        openid: openid,
+        user_name: updatename,
+        group_name: groupname,
+      },
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          hiddenmodalput: true,
+          user_name: updatename
+        })
+        wx.showToast({
+          title: '更新个人信息成功',
+          icon: 'success',
+          duration: 1000
+        })
+      }
+    })
+
+  },
+
+  cancel: function () {
+
+    var that = this;
+    that.setData({
+      hiddenmodalput: true,
+    })
+  },
+
   goto_ach: function () {
     wx.navigateTo({
       url: './achievemen/ach',

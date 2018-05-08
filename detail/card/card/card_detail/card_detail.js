@@ -359,6 +359,44 @@ Page({
       hiddenmodalput: true,
     })
   },
+  commentpinglun:function(e){
+    console.log(e);
+    var that = this;
+    var user_name = e.currentTarget.id;
+    wx.getStorage({
+      key: 'nickName',
+      success: function (res) {
+        console.log(res.data);
+        if (res.data != user_name) {
+          that.setData({
+            hiddenmodalput: false,
+          })
+          
+        }
+      }
+      })
+    
+  },
+  delete_comment:function(e){
+    var that = this;
+    console.log(e.currentTarget.id)
+    var comment_id = e.currentTarget.id;
+    wx.request({
+      url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/deletecomment',
+      data: {
+        comment_id: comment_id,
+      },
+      success: function (res) {
+        wx.showToast({
+          title: '打卡记录已删除',
+          icon: 'success',
+          duration: 1000
+
+        })
+        that.onPullDownRefresh();
+      }
+    })
+  },
 
   baoming:function(){
     wx.navigateTo({

@@ -64,6 +64,8 @@
           <view class='rank-pic-container'>
             <image src='/images/medal{{index}}.png' class='rank-pic'></image>
           </view>
+          <text style='margin-top:15px;color:#006666;'>{{index}}</text>
+
           <view class='rank-user-ava-container'>
             <image class='rank-user-ava' src='{{item.touxiang}}'></image>
           </view>
@@ -90,6 +92,7 @@
           <view class='rank-pic-container'>
             <image src='/images/medal{{index}}.png' class='rank-pic'></image>
           </view>
+          <text style='margin-top:15px;color:#006666;'>{{index}}</text>
           <view class='rank-user-ava-container'>
             <image class='rank-user-ava' src='{{item.touxiang}}'></image>
           </view>
@@ -99,7 +102,7 @@
             </view>
           </view>
           <view class='rank-font'>
-            <text class='rank-font'>{{item['month_step']}}</text>
+            <text class='rank-font'>{{item['month_step']}} 千</text>
           </view>
         </view>
         <view style='border-top:1px solid #006666;width:90%;margin-left:20px;'></view>
@@ -116,14 +119,18 @@
           <view class='rank-pic-container'>
             <image src='/images/medal{{index}}.png' class='rank-pic'></image>
           </view>
+          <text style='margin-top:15px;color:#006666;'>{{index}}</text>
           <view class='rank-name' style='margin-left:20px;'>
             <view class='rank-name-container'>
               <text class='rank-name-font'>{{item['group_name']}}</text>
             </view>
           </view>
-          <view class='rank-user-ava-container2'></view>
+          <view class='rank-pic-container'>
+            <image class='rank-pic'></image>
+          </view>
+
           <view class='rank-font'>
-            <text class='rank-font'>{{item['steps']}}</text>
+            <text class='rank-font'>{{item['steps']}} 千</text>
           </view>
         </view>
         <view style='border-top:1px solid #006666;width:90%;margin-left:20px;'></view>
@@ -139,14 +146,18 @@
           <view class='rank-pic-container'>
             <image src='/images/medal{{index}}.png' class='rank-pic'></image>
           </view>
+          <text style='margin-top:15px;color:#006666;'>{{index}}</text>
           <view class='rank-name' style='margin-left:20px;'>
             <view class='rank-name-container'>
               <text class='rank-name-font'>{{item['group_name']}}</text>
             </view>
           </view>
-          <view class='rank-user-ava-container2'></view>
+          <view class='rank-pic-container'>
+            <image class='rank-pic'></image>
+          </view>
+
           <view class='rank-font'>
-            <text class='rank-font'>{{item['steps']}}</text>
+            <text class='rank-font'>{{item['steps']}} 千</text>
           </view>
         </view>
         <view style='border-top:1px solid #006666;width:90%;margin-left:20px;'></view>

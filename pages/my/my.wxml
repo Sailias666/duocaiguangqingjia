@@ -21,7 +21,7 @@
       </view>
     </view>
     <view class='user-item'>
-      <view class='user-item-content' catchtap='goto_ach'>
+      <view class='user-item-content' catchtap='editinfo'>
         <image class='user-item-icon' src='/images/jifen2.png'></image>
         <text class='user-item-font'>修改个人信息</text>
         <view class='user-item-enter'>
@@ -29,6 +29,20 @@
         </view>
       </view>
     </view>  
+
+    <modal hidden="{{hiddenmodalput}}" showCancel="false" title="修改个人信息" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm" >  
+      <view class="section" style='margin-top:10px;margin-bottom:10px;'>
+        <input class="input" maxlength="20" placeholder="当前用户名：{{user_name}}" bindinput='bindinput'/>
+      </view>
+      
+      <view class="section">
+        <picker mode = "selector" bindchange="bindPickerChange" value="{{index}}" range="{{groupinfo}}">
+          <view class="picker">
+            选择所属公司：{{groupinfo[index]}}
+          </view>
+        </picker>
+      </view>
+    </modal> 
 
     <view class='user-item'>
       <view class='user-item-content' catchtap='goto_ach'>

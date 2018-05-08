@@ -66,7 +66,7 @@
             <image mode="aspectFill" data-src="https://chengjiushuangxiang.com/Martin/tp5/public/upload/{{data[index]['comment_pic']}}" style='width:200rpx;height:200rpx;' src="https://chengjiushuangxiang.com/Martin/tp5/public/upload/{{data[index]['comment_pic']}}"></image>
           </view>
 
-        <view wx:if="{{openid==data[index]['comment_openid'] ? true:false}}">
+        <view wx:if="{{openid==data[index]['comment_openid'] ? true:false}}" id="{{data[index]['comment_id']}}" catchtap='delete_comment'>
           <text style='color:red;font-size:15px;'>删除</text>
         </view>
 
@@ -76,7 +76,8 @@
 
           <view class='item-container'>
             <view class='comment-item-content-pinglun' >
-              <view class='pinglun-item' wx:if="{{pinglun[pindex]['pinglun_comment_id'] == data[index]['comment_id']}}"  wx:for="{{pinglun}}" wx:for-index='pindex'>
+              <view class='pinglun-item'  
+              id="{{pinglun[pindex]['pinglun_name']}}" data-="{{data[index]['comment_id']}}" wx:if="{{pinglun[pindex]['pinglun_comment_id'] == data[index]['comment_id']}}"  wx:for="{{pinglun}}" wx:for-index='pindex' bindtap='commentpinglun'>
                 <text class='pinglun-name'>{{pinglun[pindex]['pinglun_name']}} : </text>
                 <text class='pinglun-content'>{{pinglun[pindex]['pinglun_content']}}</text>
               </view>
@@ -86,11 +87,6 @@
         </view>
     </view>
   </view>
-
-
-
-
-
   <modal hidden="{{hiddenmodalput}}" showCancel="false" title="评论" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm" >  
     <view class="section">
       <input type='text'placeholder="请输入内容" bindinput='input'/> 

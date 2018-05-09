@@ -25,10 +25,20 @@ Page({
         });
       }
     });
+    wx.getStorage({
+      key: 'openid',
+      success: function (res) {
+        console.log('openid', res.data.data.openid);
+        that.setData({
+          openid: res.data.data.openid
+        })
+      },
+    })
 
     this.setData({
       id: options['id'],
       hiddenmodalput: true,
+      hiddenmodalput2: true,
     })
     wx.setStorage({
       key: 'activity_num',
@@ -295,14 +305,17 @@ Page({
       key: 'pinglun_msg',
       success: function (res) {
         var pinglun_msg = res.data;
+        console.log(pinglun_msg);
         wx.getStorage({
           key: 'comment_id',
           success: function (res) {
             var comment_id = res.data;
+            console.log(comment_id);
             wx.getStorage({
               key: 'nickName',
               success: function (res) {
                 var user_name = res.data;
+                console.log(user_name);
                 wx.request({
                   url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/add_pinglun',
                   data: {
@@ -351,6 +364,78 @@ Page({
 
   },
 
+  confirm2: function (e) {
+    var that = this;
+    wx.getStorage({
+      key: 'someone',
+      success: function (res) {
+        var someone = res.data;
+        console.log(someone);
+        wx.getStorage({
+          key: 'pinglun_msg',
+          success: function (res) {
+            var pinglun_msg = res.data;
+            console.log(pinglun_msg);
+            wx.getStorage({
+              key: 'comment_id',
+              success: function (res) {
+                var comment_id = res.data;
+                console.log(comment_id);
+                wx.getStorage({
+                  key: 'nickName',
+                  success: function (res) {
+                    var user_name = res.data;
+                    console.log(user_name);
+                    console.log(" 回复 " + someone + ": " + pinglun_msg);
+                    wx.request({
+                      url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/add_pinglun',
+                      data: {
+                        user_name: user_name,
+                        comment_id: comment_id,
+                        pinglun_msg: " 回复 " + someone + ": " + pinglun_msg,
+                      },
+                      success: function (res) {
+                        console.log(res);
+                        wx.showToast({
+                          title: '正在提交',
+                          icon: 'loading',
+                          duration: 1000
+                        })
+                        that.setData({
+                          hiddenmodalput2: true,
+                        })
+                        wx.getStorage({
+                          key: 'comment_id_list',
+                          success: function (res) {
+                            console.log(res.data);
+                            wx.request({
+                              url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/get_pinglun',
+                              data: {
+                                comment_id: res.data,
+                              },
+                              success: function (res) {
+                                that.setData({
+                                  pinglun: res.data,
+                                })
+                                console.log(res.data);
+                              }
+                            })
+                          },
+                        })
+
+                      }
+                    })
+                  },
+                })
+
+              },
+            })
+          },
+        })
+      }
+    })
+  },
+
   input: function (e) {
     var that = this;
     wx.setStorage({
@@ -359,12 +444,71 @@ Page({
     })
   },
 
+  cancel2: function () {
+    var that = this;
+    that.setData({
+      hiddenmodalput2: true,
+    })
+  },
+
+  commentpinglun: function (e) {
+    console.log(e);
+    var that = this;
+    var someone = e.currentTarget.id;
+    var commentid = e.currentTarget.dataset.commentid;
+    var user_name = wx.getStorageSync('nickName');
+    console.log(someone);
+    console.log(user_name);
+    if (someone != user_name) {
+      that.setData({
+        hiddenmodalput2: false,
+        someone: someone,
+      })
+
+    }
+    wx.setStorage({
+      key: 'someone',
+      data: someone,
+    })
+
+    wx.setStorage({
+      key: 'comment_id',
+      data: commentid,
+    })
+
+  },
+
   cancel: function () {
     var that = this;
     that.setData({
       hiddenmodalput: true,
     })
   },
+
+  delete_comment: function (e) {
+    var that = this;
+    console.log(e.currentTarget.dataset.commentid)
+    var comment_id = e.currentTarget.dataset.commentid;
+    var activity_id = wx.getStorageSync('activity_num');
+    var gaoguan = wx.getStorageSync('gaoguan');
+    wx.request({
+      url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/deletecomment',
+      data: {
+        comment_id: comment_id,
+        activity_id: activity_id,
+        gaoguan: gaoguan
+      },
+      success: function (res) {
+        wx.showToast({
+          title: '打卡记录已删除',
+          icon: 'success',
+          duration: 1000
+        })
+        that.onPullDownRefresh();
+      }
+    })
+  },
+
   viewpic: function (e) {
     console.log("click pic")
     wx.previewImage({

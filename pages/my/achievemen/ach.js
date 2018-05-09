@@ -14,6 +14,22 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    var value = wx.getStorageSync('openid')
+    console.log('个人步数天排行');
+    var avaUrl = wx.getStorageSync('avatarUrl');
+    wx.request({
+      url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/getuserinfo',     //发出请求，拿openid去找数据库user_info表
+      data: {
+        openid: value.data.openid,
+      },
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          integration: res.data.user_integral,
+          avatarUrl: res.data.touxiang,
+        });
+      }
+    })
     console.log('个人步数天排行');
     common.rank_all('https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/integral', 'gral');//个人积分排行
     var a = wx.getStorageSync('gral');
@@ -33,13 +49,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that = this;
-    console.log('个人步数天排行');
-    common.rank_all('https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/integral', 'gral');//个人积分排行
-    var a = wx.getStorageSync('gral');
-    that.setData({
-      data: a,
-    })
   },
 
   /**
@@ -62,7 +71,22 @@ Page({
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading();
     var that = this;
+    var value = wx.getStorageSync('openid')
     console.log('个人步数天排行');
+    var avaUrl = wx.getStorageSync('avatarUrl');
+    wx.request({
+      url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/getuserinfo',     //发出请求，拿openid去找数据库user_info表
+      data: {
+        openid: value.data.openid,
+      },
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          integration: res.data.user_integral,
+          avatarUrl: res.data.touxiang,
+        });
+      }
+    })
     common.rank_all('https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/integral', 'gral');//个人积分排行
     var a = wx.getStorageSync('gral');
     that.setData({

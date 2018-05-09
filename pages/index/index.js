@@ -124,7 +124,7 @@ onLoad:function(){
                                 today_steps: bushu,
                               })
                               wx.request({            //获取个人排行榜排名数据表
-                                url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/rank',
+                                url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/rank_nolimit',
                                 data: '',
                                 header: {},
                                 method: 'GET',
@@ -178,6 +178,16 @@ onLoad:function(){
                                                     wx.setStorageSync('groupname', res.data);
                                                     console.log('用户组别：', wx.getStorageSync('groupname'));
                                                   }
+                                                }
+                                              })
+                                              wx.request({
+                                                url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/getuserinfo',     //发出请求，拿openid去找数据库user_info表
+                                                data: {
+                                                  openid: openid,
+                                                },
+                                                success: function (res) {
+                                                  wx.setStorageSync('avatarUrl', res.data.touxiang);
+                                                  wx.setStorageSync('nickName', res.data.name);
                                                 }
                                               })
                                             },
@@ -259,7 +269,7 @@ onLoad:function(){
                           today_steps: bushu,
                         })
                         wx.request({
-                          url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/rank',
+                          url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/rank_nolimit',
                           data: '',
                           header: {},
                           method: 'GET',

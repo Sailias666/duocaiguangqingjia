@@ -143,7 +143,37 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    var that = this;
+    that.setData({
+      groupinfo: groupinfo,
+    })
+    try {
+      var value = wx.getStorageSync('openid')    //取出缓存的openid
+      if (value) {
+        console.log('获取缓存成功', value.data.openid);
+        var openid = value.data.openid;
+        wx.request({
+          url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/getuserinfo',     //发出请求，拿openid去找数据库user_info表
+          data: {
+            openid: openid,
+          },
+          success: function (res) {
+            console.log(res);
+            that.setData({
+              integration: res.data.user_integral,
+              groupname: res.data.group_name,
+              user_name: res.data.name,
+              avatarUrl: res.data.touxiang,
+            }),
+              wx.setStorageSync('avatarUrl', res.data.touxiang);
+            wx.setStorageSync('nickName', res.data.name);
+          }
+        })
+      }
+    } catch (e) {
+      console.log('获取缓存openid失败', e);
+      common.show('错误');
+    }
   },
 
   /**
@@ -246,7 +276,7 @@ Page({
         })
       }
     })
-
+    that.onPullDownRefresh();
   },
 
   cancel: function () {

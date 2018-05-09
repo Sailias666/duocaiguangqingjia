@@ -1,20 +1,3 @@
-
-<view class='info'>
-  <view class='avatar-container'>
-    <image class="avatar" src="{{avatarUrl}}"></image>
-  </view>
-
-  <view class='info-content'>
-    <view class='info-jifen'>
-      <text style='color:#fff;'>运动积分：{{yundong_jifen}}</text>
-    </view>
-    <view class='info-jifen'>
-      <text style='color:#fff;'>积分排名：{{yundong_paiming}}</text>
-    </view>
-  </view>
-</view>
-
-
 <view class="swiper-tab">
 
   <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">
@@ -62,9 +45,9 @@
       <view class='rank-item-container' wx:for="{{data}}" wx:key='{{index}}'>
         <view class='rank-item'>
           <view class='rank-pic-container'>
-            <image src='/images/medal{{index}}.png' class='rank-pic'></image>
+            <image wx:if="{{index < 3}}" src='/images/medal{{index}}.png' class='rank-pic'></image>
           </view>
-          <text style='margin-top:15px;color:#006666;'>{{index}}</text>
+          <text style='margin-top:15px;color:#006666;'>{{index+1}}</text>
 
           <view class='rank-user-ava-container'>
             <image class='rank-user-ava' src='{{item.touxiang}}'></image>
@@ -90,9 +73,9 @@
       <view class='rank-item-container' wx:for="{{data_month_personal}}" wx:key='{{index}}'>
         <view class='rank-item'>
           <view class='rank-pic-container'>
-            <image src='/images/medal{{index}}.png' class='rank-pic'></image>
+            <image wx:if="{{index < 3}}" src='/images/medal{{index}}.png' class='rank-pic'></image>
           </view>
-          <text style='margin-top:15px;color:#006666;'>{{index}}</text>
+          <text style='margin-top:15px;color:#006666;'>{{index+1}}</text>
           <view class='rank-user-ava-container'>
             <image class='rank-user-ava' src='{{item.touxiang}}'></image>
           </view>
@@ -117,9 +100,9 @@
       <view class='rank-item-container' wx:for="{{group_step_rank}}" wx:key='{{index}}'>
         <view class='rank-item'>
           <view class='rank-pic-container'>
-            <image src='/images/medal{{index}}.png' class='rank-pic'></image>
+            <image wx:if="{{index < 3}}" src='/images/medal{{index}}.png' class='rank-pic'></image>
           </view>
-          <text style='margin-top:15px;color:#006666;'>{{index}}</text>
+          <text style='margin-top:15px;color:#006666;'>{{index+1}}</text>
           <view class='rank-name' style='margin-left:20px;'>
             <view class='rank-name-container'>
               <text class='rank-name-font'>{{item['group_name']}}</text>
@@ -135,6 +118,7 @@
         </view>
         <view style='border-top:1px solid #006666;width:90%;margin-left:20px;'></view>
       </view>
+      <view><text style='color:#dddddd'>每天00：00更新排行</text></view>
     </view>
   </swiper-item>
 
@@ -144,9 +128,9 @@
       <view class='rank-item-container' wx:for="{{group_step_rank_month}}" wx:key='{{index}}'>
         <view class='rank-item' >
           <view class='rank-pic-container'>
-            <image src='/images/medal{{index}}.png' class='rank-pic'></image>
+            <image wx:if="{{index < 3}}" src='/images/medal{{index}}.png' class='rank-pic'></image>
           </view>
-          <text style='margin-top:15px;color:#006666;'>{{index}}</text>
+          <text style='margin-top:15px;color:#006666;'>{{index+1}}</text>
           <view class='rank-name' style='margin-left:20px;'>
             <view class='rank-name-container'>
               <text class='rank-name-font'>{{item['group_name']}}</text>
@@ -162,6 +146,7 @@
         </view>
         <view style='border-top:1px solid #006666;width:90%;margin-left:20px;'></view>
       </view>
+      <view><text style='color:#dddddd'>每天00：00更新排行</text></view>
     </view>
   </swiper-item>
 </swiper>

@@ -1,10 +1,21 @@
+  <view class='info'>
+    <view class='avatar-container'>
+      <image class="avatar" src="{{avatarUrl}}"></image>
+    </view>
 
+    <view class='info-content'>
+      <view class='info-jifen'>
+        <text style='color:#fff;'>运动积分：{{integration}}</text>
+      </view>
+    </view>
+  </view>
+  
     <view class='rank-container'>
       <view style='border-top:1px solid #006666;width:90%;margin-top:20px;margin-left:20px;'></view>
       <view class='rank-item-container' wx:for="{{data}}" wx:key='{{index}}'>
         <view class='rank-item'>
           <view class='rank-pic-container'>
-            <image src='/images/medal{{index}}.png' class='rank-pic'></image>
+            <image wx:if="{{index < 3}}" src='/images/medal{{index}}.png' class='rank-pic'></image>
           </view>
           <view class='rank-user-ava-container'>
             <image class='rank-user-ava' src='{{item.touxiang}}'></image>

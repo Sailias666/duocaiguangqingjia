@@ -1,4 +1,6 @@
 <view class='bg'>
+  
+
   <view class='gift-container'>
     <view class='gift-content'>
       <view class='gift-pic-container'>

@@ -22,7 +22,7 @@
     </view>
     <view class='user-item'>
       <view class='user-item-content' catchtap='editinfo'>
-        <image class='user-item-icon' src='/images/jifen2.png'></image>
+        <image class='user-item-icon' src='/images/xiugai.jpg'></image>
         <text class='user-item-font'>修改个人信息</text>
         <view class='user-item-enter'>
           <image class='user-item-arrow' src='/images/arrow.png'></image>

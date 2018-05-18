@@ -17,8 +17,10 @@
           <view class='rank-pic-container'>
             <image wx:if="{{index < 3}}" src='/images/medal{{index}}.png' class='rank-pic'></image>
           </view>
+          <text style='margin-top:15px;color:#006666;'>{{index+1}}</text>
           <view class='rank-user-ava-container'>
             <image class='rank-user-ava' src='{{item.touxiang}}'></image>
+            
           </view>
           <view class='rank-name'>
             <view class='rank-name-container'>

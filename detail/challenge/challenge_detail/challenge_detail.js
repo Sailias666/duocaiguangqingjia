@@ -106,9 +106,6 @@ Page({
           })
         }
       })
-    
-     
-    
   },
 
   baoming2:function(){

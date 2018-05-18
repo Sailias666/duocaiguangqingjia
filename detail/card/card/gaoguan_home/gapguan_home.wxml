@@ -1,6 +1,6 @@
 <view class='bg'>
 
-  <navigator hidden='{{gaoguan}}' url='/detail/card/card/gaoguan/gaoguan?id=888881' hover-class="navigator-hover">
+  <navigator url='/detail/card/card/gaoguan/gaoguan?id=888881&jifen=5' hover-class="navigator-hover">
     <view  class='grid-item'  >  
       <view class='title-container'>
             <text class="post-title">每日健身任务</text>
@@ -16,7 +16,7 @@
       </view> 
     </view> 
   </navigator>
-  <navigator hidden='{{gaoguan}}' url='/detail/card/card/gaoguan/gaoguan?id=888882' hover-class="navigator-hover">
+  <navigator  url='/detail/card/card/gaoguan/gaoguan?id=888882&jifen=10' hover-class="navigator-hover">
     <view  class='grid-item'  >  
       <view class='title-container'>
             <text class="post-title">特训健身课程</text>
@@ -33,7 +33,7 @@
     </view> 
   </navigator>
 
-    <navigator hidden='{{gaoguan}}' url='/detail/card/card/gaoguan/gaoguan?id=888883' hover-class="navigator-hover">
+    <navigator  url='/detail/card/card/gaoguan/gaoguan?id=888883&jifen=15' hover-class="navigator-hover">
     <view  class='grid-item'  >  
       <view class='title-container'>
             <text class="post-title">活力周末</text>
@@ -50,7 +50,7 @@
     </view> 
   </navigator>
 
-    <navigator hidden='{{gaoguan}}' url='/detail/card/card/gaoguan/gaoguan?id=888884' hover-class="navigator-hover">
+    <navigator  url='/detail/card/card/gaoguan/gaoguan?id=888884&jifen=10' hover-class="navigator-hover">
     <view  class='grid-item'  >  
       <view class='title-container'>
             <text class="post-title">超级星期三+</text>

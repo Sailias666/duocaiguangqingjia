@@ -19,10 +19,11 @@ Page({
       key: 'openid',
       success: function(res) {
         console.log(res.data.data.openid)
+        var openid = res.data.data.openid;
         wx.request({
           url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/get_gaoguan',
           data: {
-            openid: res.data.data.openid,
+            openid: openid,
           },
           success: function (res) {
             console.log('高管：', res.data[0].gaoguan);
@@ -46,6 +47,21 @@ Page({
                 var data = res.data;
                 that.setData({
                   activity: data,
+                })
+
+              }
+            })
+
+            wx.request({
+              url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/rank_c',
+              data: {
+                openid: openid,
+              },
+              success: function (res) {
+                console.log('打卡系统接口', res.data);
+                var data = res.data;
+                that.setData({
+                  c_activity: data,
                 })
 
               }

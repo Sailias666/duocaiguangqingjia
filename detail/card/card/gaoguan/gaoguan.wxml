@@ -53,7 +53,7 @@
 
     </view>
 
-    <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:2400px" bindchange="bindChange">
+    <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{heighta*450}}rpx" bindchange="bindChange">
       <swiper-item>
       <view class='comment-item' wx:for="{{data}}" wx:key="index">
 

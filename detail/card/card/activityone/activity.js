@@ -95,6 +95,8 @@ cleanpic: function () {
                   console.log(avaurl);
                   console.log(openid);
                   console.log(gaoguan);
+                  
+                  var jifen = wx.getStorageSync('jifen');
                   wx.uploadFile({
                     url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/upload', //仅为示例，非真实的接口地址
                     filePath: that.data.imageList[0],
@@ -106,26 +108,13 @@ cleanpic: function () {
                       'avaurl': avaurl,
                       'openid': openid,
                       'gaoguan': gaoguan,
+                      'jifen':jifen,
                     },
                     success: function (res) {
                       var data = (res.data);
                       console.log(res);
                       console.log("已经执行成功回调函数");
-                      var jifen=5;
-                      if (wx.getStorageSync('gaoguan') =='1'){
-                        if (wx.getStorageSync('activity_num') == 888881) {
-                          jifen = 5;
-                        }
-                        if (wx.getStorageSync('activity_num') == 888882) {
-                          jifen = 10;
-                        }
-                        if (wx.getStorageSync('activity_num') == 888883) {
-                          jifen = 15;
-                        }
-                        if (wx.getStorageSync('activity_num') == 888884) {
-                          jifen = 10;
-                        }
-                      }
+                      var jifen= wx.getStorageSync('jifen');
                       
 
                       wx.showModal({

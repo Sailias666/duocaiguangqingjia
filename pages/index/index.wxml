@@ -33,9 +33,11 @@
       <view class='run-content-fontblock2'>
         <text class='run-content-font2'>步数排名 / 第{{step_rank}}名</text>
       </view>
+      
     </view>
   </view>
 </navigator>
+
   <view class="grid-wrp">
     <view class="grid-row">
         <view class="grid-item" bindtap='goto_daka'>
@@ -77,6 +79,7 @@
         </navigator>
     </view>
   </view>
+  <button style='background:#006666;' open-type='getUserInfo' catchtap='shouquan'><text style='color:#ffffff;'>点我登陆！（首次授权后再点一次）</text></button>
  <modal hidden="{{hiddenmodalput}}" showCancel="false" title="请选择分组信息" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm" >  
     <view class="section">
   <picker mode = "selector" bindchange="bindPickerChange" value="{{index}}" range="{{groupinfo}}">

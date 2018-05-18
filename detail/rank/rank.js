@@ -37,7 +37,7 @@ Page({
          user_name: res.data,
        })
      },
-   })
+   });
 
    wx.getStorage({
      key: 'avatarUrl',
@@ -48,6 +48,43 @@ Page({
        })
      },
    })
+
+   var that = this;
+   console.log('个人步数天排行');
+   wx.request({
+     url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/rank',
+     success: function (res) {
+       that.setData({
+         data: res.data,
+       })
+     }
+   })
+   wx.request({
+     url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/rank_personal_month',
+     success: function (res) {
+       that.setData({
+         data_month_personal: res.data,
+       })
+     }
+   })
+   wx.request({
+     url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/group_step_rank',
+     success: function (res) {
+       that.setData({
+         group_step_rank: res.data,
+       })
+     }
+   })
+   wx.request({
+     url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/group_step_rank_month',
+     success: function (res) {
+       that.setData({
+         group_step_rank_month: res.data,
+       })
+     }
+   })
+   
+
  },
 
  // 滑动切换tab 
@@ -67,80 +104,59 @@ Page({
     }
   },
   onShow: function () {
-    var that = this;
-    console.log('个人步数天排行');
-    common.rank_all('https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/rank', 'rank');//个人步数天排行
-    var a = wx.getStorageSync('rank');
-    that.setData({
-      data: a,
-    })
-    that.setData({
-      heighta: ((a.length*70)+60),
-    })
-    console.log(a.length)
-    console.log('个人步数月排行');
-    common.rank_all('https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/rank_personal_month', 'rank_month_personal');  //个人步数月排行
-    var b = wx.getStorageSync('rank_month_personal');
-    that.setData({
-      data_month_personal: b,
-    })
-    console.log('团队天排行');
-    common.rank_all('https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/group_step_rank', 'group_step_rank');  //团队步数天排行
-    var c = wx.getStorageSync('group_step_rank');
-    that.setData({
-      group_step_rank: c,
-    })
-    console.log('团队月排行');
-    common.rank_all('https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/group_step_rank_month', 'group_step_rank_month');  //团队步数月排行
-    var d = wx.getStorageSync('group_step_rank_month');
-    that.setData({
-      group_step_rank_month: d,
-    })
-
+    
   },
 
 
   onPullDownRefresh: function () {
-    wx.getStorage({
-      key: 'avatarUrl',
-      success: function (res) {
-        console.log(res.data);
-        that.setData({
-          avatarUrl: res.data,
-        })
-      },
-    })
+    var that=this;
       console.log('下拉刷新');
       wx.showNavigationBarLoading()
-      var that = this;
-   
-      console.log('个人步数天排行');
-      common.rank_all('https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/rank', 'rank');     //个人步数天排行
-      var a = wx.getStorageSync('rank');
-      that.setData({
-        data: a,
-      })
- 
-      console.log('个人步数月排行');
-      common.rank_all('https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/rank_personal_month', 'rank_month_personal');  //个人步数月排行
-      var b = wx.getStorageSync('rank_month_personal');
-      that.setData({
-        data_month_personal: b,
-      })
-     
-      console.log('团队天排行');
-      common.rank_all('https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/group_step_rank', 'group_step_rank');  //个人步数月排行
-      var c = wx.getStorageSync('group_step_rank');
-      that.setData({
-        group_step_rank : c,
-      })
+      wx.request({
+        url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/rank',
+        success: function (res) {
+          that.setData({
+            data: res.data,
+          })
+          wx.request({
+            url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/rank_personal_month',
+            success: function (res) {
+              that.setData({
+                data_month_personal: res.data,
+              })
 
-      console.log('团队月排行');
-      common.rank_all_sx('https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/group_step_rank_month', 'group_step_rank_month');  //团队步数月排行
-      var d = wx.getStorageSync('group_step_rank_month');
-      that.setData({
-        group_step_rank_month: d,
+              wx.request({
+                url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/group_step_rank',
+                success: function (res) {
+                  that.setData({
+                    group_step_rank: res.data,
+                  })
+                  wx.request({
+                    url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/group_step_rank_month',
+                    success: function (res) {
+                      that.setData({
+                        group_step_rank_month: res.data,
+                      })
+                      wx.hideNavigationBarLoading();
+                      wx.stopPullDownRefresh();
+                      wx.showToast({
+                        title: '刷新成功',
+                        icon: 'success',
+                        duration: 2000
+                      })
+                    }
+                  })
+
+                }
+              })
+            }
+          })
+        }
       })
+      
+      
+     
+   
   }, 
   onShareAppMessage: function (res) {
     if (res.from === 'button') {

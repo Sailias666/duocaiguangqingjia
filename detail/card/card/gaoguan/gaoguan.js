@@ -44,6 +44,10 @@ Page({
       key: 'activity_num',
       data: options['id'],
     })
+    wx.setStorage({
+      key: 'jifen',
+      data: options['jifen'],
+    })
     wx.request({
       url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/get_activity',
       data: {
@@ -61,8 +65,10 @@ Page({
             activity_num: wx.getStorageSync('activity_num'),
           },
           success: function (res) {
+            console.log(res.data)
             that.setData({
               data: res.data,
+              heighta: res.data.length
             })
             console.log(res);
             var comment_id = '';
@@ -488,14 +494,17 @@ Page({
   delete_comment: function (e) {
     var that = this;
     console.log(e.currentTarget.dataset.commentid)
+    var openid = wx.getStorageSync('openid');
     var comment_id = e.currentTarget.dataset.commentid;
     var activity_id = wx.getStorageSync('activity_num');
     var gaoguan = wx.getStorageSync('gaoguan');
+    var jifen = wx.getStorageSync('jifen');
     wx.request({
       url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/deletecomment',
       data: {
+        openid:openid.data.openid,
         comment_id: comment_id,
-        activity_id: activity_id,
+        jifen: jifen,
         gaoguan: gaoguan
       },
       success: function (res) {

@@ -62,6 +62,10 @@ Page({
             }),
               wx.setStorageSync('avatarUrl', res.data.touxiang);
             wx.setStorageSync('nickName', res.data.name);
+            wx.setStorage({
+              key: 'updategroupname',
+              data: res.data.group_name,
+            })
           }
         })
       }
@@ -116,6 +120,10 @@ Page({
             }),
               wx.setStorageSync('avatarUrl', res.data.touxiang);
             wx.setStorageSync('nickName', res.data.name);
+            wx.setStorage({
+              key: 'updategroupname',
+              data: res.data.group_name,
+            })
           }
         })
       }
@@ -144,6 +152,7 @@ Page({
    */
   onPullDownRefresh: function () {
     var that = this;
+    wx.showNavigationBarLoading()
     that.setData({
       groupinfo: groupinfo,
     })
@@ -167,6 +176,18 @@ Page({
             }),
               wx.setStorageSync('avatarUrl', res.data.touxiang);
             wx.setStorageSync('nickName', res.data.name);
+            wx.setStorage({
+              key: 'updategroupname',
+              data: res.data.group_name,
+            })
+            wx.stopPullDownRefresh();
+            wx.hideNavigationBarLoading();
+            wx.showToast({
+              title: '刷新成功',
+              icon: 'success',
+              duration: 1000
+
+            })
           }
         })
       }
@@ -174,6 +195,7 @@ Page({
       console.log('获取缓存openid失败', e);
       common.show('错误');
     }
+    
   },
 
   /**
@@ -246,16 +268,22 @@ Page({
       key: 'updatename',
       data: e.detail.value,
     })
+
   },
   confirm: function () {
     var that = this;
     var openid = wx.getStorageSync('openid').data['openid'];
     var groupname = wx.getStorageSync('updategroupname');
     var updatename = wx.getStorageSync('updatename');
+    if(updatename==''){
+      updatename=wx.getStorageSync("nickName");
+    }
+    if(groupname==''){
+      groupname = wx.getStorageSync("groupname");
+    }
     console.log(openid);
     console.log(groupname);
-    console.log(updatename);
-    
+    console.log("updatename:  " + updatename);
     wx.request({
       url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/editinfo',
       data: {
@@ -267,7 +295,8 @@ Page({
         console.log(res);
         that.setData({
           hiddenmodalput: true,
-          user_name: updatename
+          user_name: updatename,
+          groupname: groupname,
         })
         wx.showToast({
           title: '更新个人信息成功',

@@ -1,6 +1,6 @@
 <view class='bg'>
 
-  <navigator hidden='{{gaoguan}}' url='../../detail/card/card/gaoguan_home/gapguan_home' hover-class="navigator-hover">
+  <navigator  url='../../detail/card/card/gaoguan_home/gapguan_home' hover-class="navigator-hover">
     <view  class='grid-item'  >  
       <view class='title-container'>
             <text class="post-title">高管专区</text>
@@ -18,7 +18,26 @@
   </navigator>
 
   <view class="post-container" wx:for="{{activity}}" wx:key='{{index}}'>
-     <navigator url='../../detail/card/card/card_detail/card_detail?id={{item.activity_id}}' hover-class="navigator-hover">
+     <navigator url='../../detail/card/card/card_detail/card_detail?id={{item.activity_id}}&jifen={{item.activity_active}}' hover-class="navigator-hover">
+  <view  class='grid-item'  >  
+      <view class='title-container'>
+            <text class="post-title">{{item.activity_name}}</text>
+      </view>
+       <view class='image-container'>
+            <image class="post-image" src="{{item.activity_img}}"></image>
+      </view> 
+      <view class='content-container'>
+            <text class="post-content">{{item.activity_desc}}</text>
+      </view>      
+      <view class='deadline-container'>      
+            <text class='deadline'>{{item.activity_date}}</text>
+      </view> 
+    </view> 
+    </navigator>
+  </view>
+
+    <view class="post-container" wx:for="{{c_activity}}" wx:key='{{index}}'>
+     <navigator url='../../detail/card/card/card_detail/card_detail?id={{item.activity_id}}&jifen={{item.activity_active}}' hover-class="navigator-hover">
   <view  class='grid-item'  >  
       <view class='title-container'>
             <text class="post-title">{{item.activity_name}}</text>

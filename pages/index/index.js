@@ -53,13 +53,32 @@ onLoad:function(){
     console.log(groupinfo);
     wx.login({
       success: function (res) {
+        wx.showToast({
+          title: '正在登陆...',
+          icon: 'loading',
+          mask:true,
+          duration: 4000
+        })
+        
         if(res.code){
           console.log('login 成功');
           var code = res.code;
+          console.log('登录请求所需code', code);
+          wx.showToast({
+            title: '正在请求数据...',
+            icon: 'loading',
+            mask: true,
+            duration: 4000
+          })
           wx.getUserInfo({
             success: function (res) {
               console.log('获取用户信息成功：', res.userInfo);
-              console.log('登录请求所需code', code);
+              wx.showToast({
+                title: '获取用户信息成功...',
+                icon: 'loading',
+                mask: true,
+                duration: 4000
+              })
               var user = res.userInfo;
               try {     //将个人信息放入缓存
                 wx.setStorageSync('userinfo', user)
@@ -77,10 +96,19 @@ onLoad:function(){
                   console.log('rank', res.data);
                 },
                 fail:function(res){
-                  console.log(res);
+                  wx.showToast({
+                    title: '连接失败 - 01',
+                    icon: 'none',
+                    duration: 4000
+                  })
                 }
               })
-
+              wx.showToast({
+                title: '正在读取数据...',
+                icon: 'loading',
+                mask: true,
+                duration: 4000
+              })
               wx.request({                                      //登录请求并将用户名头像上传数据库的用户信息表
                 url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/index',
                 data: {
@@ -102,6 +130,12 @@ onLoad:function(){
                       console.log('读取缓存中openid成功', value.data.openid);
                       var openid = value.data.openid;
                       var session_key = res.data.session_key;
+                      wx.showToast({
+                        title: '获取运动步数...',
+                        icon: 'loading',
+                        mask: true,
+                        duration: 4000
+                      })
                       wx.getWeRunData({            //微信运动api，
                         success(res) {
                           const encryptedData = res.encryptedData
@@ -116,6 +150,12 @@ onLoad:function(){
                             method: 'GET',
                             success: function (res) {    //解密成功回调函数
                               console.log('获取步数成功', res);
+                              wx.showToast({
+                                title: '获取步数成功...',
+                                icon: 'loading',
+                                mask: true,
+                                duration: 4000
+                              })
                               var yundong = res.data.stepInfoList;
                               var bushu = yundong[30].step;
                               var timestamp = yundong[30].timestamp;
@@ -131,14 +171,12 @@ onLoad:function(){
                                 dataType: 'json',
                                 responseType: 'text',
                                 success: function (res) {
-                                  var data = res.data;//数组
-                                  wx.setStorage({
-                                    key: "rank",
-                                    data: data,
+                                  wx.showToast({
+                                    title: '正在排名...',
+                                    icon: 'loading',
+                                    mask: true,
+                                    duration: 4000
                                   })
-                                  wx.getStorage({
-                                    key: 'rank',
-                                    success: function (res) {
                                       console.log('缓存步数排名成功', res.data);
                                       var value = res.data;
                                       wx.login({
@@ -160,6 +198,12 @@ onLoad:function(){
                                                   })
                                                 }
                                               }
+                                              wx.showToast({
+                                                title: '获取组别信息...',
+                                                icon: 'loading',
+                                                mask: true,
+                                                duration: 4000
+                                              })
                                               wx.request({
                                                 url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/yz_group',
                                                 data: {
@@ -180,6 +224,12 @@ onLoad:function(){
                                                   }
                                                 }
                                               })
+                                              wx.showToast({
+                                                title: '正在生成...',
+                                                icon: 'loading',
+                                                mask: true,
+                                                duration: 2000
+                                              })
                                               wx.request({
                                                 url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/getuserinfo',     //发出请求，拿openid去找数据库user_info表
                                                 data: {
@@ -194,8 +244,8 @@ onLoad:function(){
                                           })
                                         }
                                       })
-                                    }
-                                  })
+                                    
+                                
                                 },
                               })
                             }
@@ -209,11 +259,31 @@ onLoad:function(){
                     common.show('错误');
                   }
                 },
+                fail:function(res){
+                console.log(res.data);
+                wx.showToast({
+                  title: '获取用户信息失败 - 02',
+                  icon: 'none',
+                  duration: 2000
+                })
+                }
               })
             },
+            fail:function(res){
+              console.log(res);
+              wx.showToast({
+                title: '获取信息失败 - 02',
+                icon: 'none',
+                duration: 2000
+              })
+            }
           })
         } else {
-          console.log('登录失败！' + res.errMsg);
+          wx.showToast({
+            title: '登陆失败 - 01',
+            icon:'none',
+            duration:2000
+          })
         }
 
       }
@@ -329,7 +399,25 @@ onLoad:function(){
                         })
                       }
                     })
+                  },
+                  fail: function () {
+                    wx.hideNavigationBarLoading();
+                    wx.stopPullDownRefresh();
+                    wx.showToast({
+                      title: '网络异常',
+                      icon:'fail',
+                      duration:2000,
+                    })
                   }
+                })
+              },
+              fail:function(){
+                wx.hideNavigationBarLoading();
+                wx.stopPullDownRefresh();
+                wx.showToast({
+                  title: '网络异常',
+                  icon: 'fail',
+                  duration: 2000,
                 })
               }
         })
@@ -392,7 +480,6 @@ onLoad:function(){
         })
       },
     })
-    common.clearstor('groupname')
   },
 
    cancel:function(){
@@ -431,6 +518,10 @@ onLoad:function(){
       url: '../../detail/card/card'
     })
 
+  },
+
+  shouquan:function(){
+    this.onLoad();
   },
   onShareAppMessage: function (res) {
     if (res.from === 'button') {

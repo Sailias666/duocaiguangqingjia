@@ -44,7 +44,7 @@
 .run-content-fontblock1{
   height: 40px;
   margin-top: 10px;
-  width: 100%;
+  width: 70%;
 }
 
 .run-conetnt-font1{
@@ -54,7 +54,7 @@
 }
 .run-content-fontblock2{
   height: 30px;
-  width: 100%;
+  width: 70%;
 }
 .run-content-font2{
   font-family: MicroSoft Yahei;

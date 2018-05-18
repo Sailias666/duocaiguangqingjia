@@ -38,7 +38,7 @@
 
 </view>
 
-<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{heighta}}px" bindchange="bindChange">
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:7060px" bindchange="bindChange">
   <swiper-item>
     <view class='rank-container' wx:if="{{user_name}}=={{item['name']}}">
       <view style='border-top:1px solid #006666;width:90%;margin-top:20px;margin-left:20px;'></view>

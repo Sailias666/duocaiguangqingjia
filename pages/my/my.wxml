@@ -77,7 +77,7 @@
     <view class='user-item'>
       <view class='user-item-content' >
         <image class='user-item-icon' src='/images/version.png'></image>
-        <text class='user-item-font'>版本  v0503.17</text>
+        <text class='user-item-font'>版本  v0516.01</text>
       </view>
     </view> 
   </view>

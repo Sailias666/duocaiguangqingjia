@@ -30,12 +30,15 @@ Page({
         });
       }
     })
-    console.log('个人步数天排行');
-    common.rank_all('https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/integral', 'gral');//个人积分排行
-    var a = wx.getStorageSync('gral');
-    that.setData({
-       data: a,
-    })
+    wx.request({
+      url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/integral',
+      success: function (res) {
+        that.setData({
+          data: res.data,
+        })
+      }
+    });
+    
   },
 
   /**
@@ -87,19 +90,23 @@ Page({
         });
       }
     })
-    common.rank_all('https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/integral', 'gral');//个人积分排行
-    var a = wx.getStorageSync('gral');
-    that.setData({
-      data: a,
-    })
-    wx.stopPullDownRefresh();
-    wx.hideNavigationBarLoading();
-    wx.showToast({
-      title: '刷新成功',
-      icon: 'success',
-      duration: 1000
+    wx.request({
+      url: 'https://chengjiushuangxiang.com/Martin/tp5/public/index.php/index/wx/integral',
+      success: function (res) {
+        that.setData({
+          data: res.data,
+        })
+        wx.stopPullDownRefresh();
+        wx.hideNavigationBarLoading();
+        wx.showToast({
+          title: '刷新成功',
+          icon: 'success',
+          duration: 1000
 
-    })
+        })
+      }
+    });
+    
   },
 
   /**
